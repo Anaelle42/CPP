@@ -9,6 +9,18 @@ Contact::~Contact()
 {
 }
 
+int	checkString(std::string str)
+{
+	if(!std::cin || str.empty())
+		return 1;
+	for(size_t i(0); i < str.length(); i++)
+	{
+		if (std::isprint(str[i]) && !std::isspace(str[i])) 
+        	return 0;
+    }
+	return 1;
+}
+
 int Contact::setContact()
 {
 	std::string tmp_first_name;
@@ -19,23 +31,23 @@ int Contact::setContact()
 
 	std::cout << "enter the first name:" << std::endl;
 	std::getline(std::cin, tmp_first_name);
-	if(!std::cin || tmp_first_name.empty())
+	if(checkString(tmp_first_name))
 		return (1);
 	std::cout << "enter the last name:" << std::endl;
 	std::getline(std::cin, tmp_last_name);
-	if(!std::cin || tmp_last_name.empty())
+	if(checkString(tmp_last_name))
 		return (1);
 	std::cout << "enter the nickname:" << std::endl;
 	std::getline(std::cin, tmp_nickname);
-	if(!std::cin || tmp_nickname.empty())
+	if(checkString(tmp_nickname))
 		return (1);
 	std::cout << "enter the phone number:" << std::endl;
 	std::getline(std::cin, tmp_phone_number);
-	if(!std::cin || tmp_phone_number.empty())
+	if(checkString(tmp_phone_number))
 		return (1);
 	std::cout << "enter the darkest secret:" << std::endl;
 	std::getline(std::cin, tmp_darkest_secret);
-	if(!std::cin || tmp_darkest_secret.empty())
+	if(checkString(tmp_darkest_secret))
 		return (1);
 	
 	first_name = tmp_first_name;
@@ -47,7 +59,7 @@ int Contact::setContact()
 	return (0);
 }
 
-int Contact::checkExist()
+int Contact::checkExist() const
 {
 	if (exist == 1)
 		return (0);
@@ -55,7 +67,7 @@ int Contact::checkExist()
 		return (1);
 }
 
-void Contact::getContact()
+void Contact::getContact() const
 {
 	std::cout << first_name << std::endl;
 	std::cout << last_name << std::endl;

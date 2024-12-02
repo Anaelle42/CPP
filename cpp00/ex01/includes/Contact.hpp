@@ -18,12 +18,13 @@ class Contact
 		Contact();
 		~Contact();
 		int setContact();
-		void getContact();
-		int checkExist();
+		void getContact() const;
+		int checkExist() const;
 		void getFirstName();
 		void getLastName();
 		void getNickName();
 };
 
+int	checkString(std::string str);
 
 #endif
