@@ -15,7 +15,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	c++ $(FLAGS) $(OBJ) -o $(NAME) -g
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp  includes/Weapon.hpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p ${dir $@}
 	c++ $(FLAGS) -c $< -o $@
 

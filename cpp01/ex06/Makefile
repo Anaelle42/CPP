@@ -1,4 +1,4 @@
-NAME = harl
+NAME = harlFilter
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

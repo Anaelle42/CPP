@@ -39,14 +39,29 @@ void Harl::error()
 void Harl::complain(std::string level)
 {
 	std::string tab[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*ftab[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	int levelIndex = -1;
 	for(int i = 0; i < 4; i++)
 	{
 		if(!level.compare(tab[i]))
 		{
-			(this->*ftab[i])();
-			return ;
+			levelIndex = i;
+			break;
 		}
 	}
-	std::cout << "[Probably complaining about insignificant problems]" << std::endl << std::endl;
+	
+	switch (levelIndex)
+	{
+		case 0:
+			debug();
+		case 1:
+			info();
+		case 2:
+			warning();
+		case 3:
+			error();
+			break;
+		default :
+			std::cout << "[Probably complaining about insignificant problems]" << std::endl;
+	}
+		
 }
