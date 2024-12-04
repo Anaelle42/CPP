@@ -2,13 +2,13 @@ NAME = fixed
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_DIR = src
+SRC_DIR = srcs
 FILES = Fixed.cpp \
 		main.cpp
 
 SRC = $(addprefix $(SRC_DIR)/, $(FILES))
 
-OBJ_DIR = obj
+OBJ_DIR = objs
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)

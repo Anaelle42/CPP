@@ -6,17 +6,17 @@
 class Fixed
 {
 	private:
-		int valeur;
-		static const int nbbits = 8;;
+		int value;
+		static const int nbBits = 8;
 	public:
 		Fixed();
-		Fixed(const int other);
-		Fixed(const float other);
 		Fixed(const Fixed& other);
 		~Fixed();
 		void operator=(const Fixed& other);
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
+		Fixed(const int other);
+		Fixed(const float other);
 		float toFloat( void ) const;
 		int toInt( void ) const;
 };
