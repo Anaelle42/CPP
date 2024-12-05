@@ -1,35 +1,46 @@
 #include <iostream>
 #include <fstream>
-#include <string.h>
+
+void ft_replace(std::string& str, std::string s1, std::string s2)
+{
+	size_t pos = 0;
+	while((pos = str.find(s1, pos)) != std::string::npos)
+	{	
+		str.erase(pos, s1.length());
+		str.insert(pos, s2);
+		pos += s2.length();
+	}
+}
 
 int main(int argc, char **argv)
 {
 	if(argc != 4)
 	{
 		std::cout << "Invalid number of arguments" << std::endl;
-		return 0;
+		return 1;
 	}
 
 	std::ifstream ifs (argv[1]);
-	// check et tout
+	if(!ifs.is_open())
+	{
+		std::cout << "Error opening file" << std::endl;
+		return 1;
+	}
+
 	std::string outf = argv[1];
 	std::ofstream ofs (outf.append(".replace").c_str());
+	if(!ofs.is_open())
+	{
+		std::cout << "Error opening file" << std::endl;
+		return 1;
+	}
 
 	std::string line;
 	while(std::getline(ifs, line))
 	{
-		if(line.find(argv[2]))
-		{	
-			std::cout << "trouve hahaha" << std::endl;
-			size_t pos = line.find(argv[2]);
-			size_t len = strlen(argv[2]);
-			// line.erase(pos, len);
-			line.insert(pos, argv[3]);
-			(void)pos; (void) len;
-		}
+		ft_replace(line, argv[2], argv[3]);
 		ofs << line << std::endl;
 	}
-
 	ifs.close();
 	return 0;
 }
