@@ -1,6 +1,6 @@
 #include "../includes/DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap(std::string other) : name(other)
 {
 	std::cout << "Default constructor Diamond Trap called" << std::endl;
 }

@@ -19,9 +19,24 @@ class Fixed
 		Fixed(const float other);
 		float toFloat( void ) const;
 		int toInt( void ) const;
-		//
-		float operator+(Fixed const& other);
-		float operator-(Fixed const& other);
+		Fixed operator+(Fixed const& other) const;
+		Fixed operator-(Fixed const& other) const;
+		Fixed operator*(Fixed const& other) const;
+		Fixed operator/(Fixed const& other) const;
+		bool operator>(Fixed const& other) const;
+		bool operator<(Fixed const& other) const;
+		bool operator>=(Fixed const& other) const;
+		bool operator<=(Fixed const& other) const;
+		bool operator==(Fixed const& other) const;
+		bool operator!=(Fixed const& other) const;
+		Fixed operator++(int); // pre incrementation
+		Fixed operator--(int);
+		Fixed operator++(); // post incrementation
+		Fixed operator--();
+		static Fixed min(Fixed& first, Fixed& second);
+		static Fixed const min(Fixed const& first, Fixed const& second);
+		static Fixed max(Fixed& first, Fixed& second);
+		static Fixed const max(Fixed const& first, Fixed const& second);
 
 };
 
