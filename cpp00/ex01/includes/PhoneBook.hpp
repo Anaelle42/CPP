@@ -1,8 +1,6 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include <iostream>
-# include <cstdlib>
 # include "Contact.hpp"
 
 class PhoneBook
@@ -14,7 +12,7 @@ class PhoneBook
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void addContact();
+		void add();
 		void search();
 };
 

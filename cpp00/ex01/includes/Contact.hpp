@@ -19,7 +19,7 @@ class Contact
 		~Contact();
 		int setContact();
 		void getContact() const;
-		int checkExist() const;
+		int checkIfExist() const;
 		void getFirstName();
 		void getLastName();
 		void getNickName();

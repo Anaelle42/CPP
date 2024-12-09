@@ -4,12 +4,13 @@ int main(void)
 {
 	PhoneBook phonebook;
 	std::string line;
+
 	while(std::cin)
 	{
 		std::cout << "> ";
 		std::getline(std::cin, line);
 		if(line.compare("ADD") == 0)
-			phonebook.addContact();
+			phonebook.add();
 		else if(line.compare("SEARCH") == 0)
 			phonebook.search();
 		else if(line.compare("EXIT") == 0)

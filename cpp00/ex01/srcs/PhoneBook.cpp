@@ -11,7 +11,7 @@ PhoneBook::~PhoneBook()
 	std::cout << "PhoneBook has been deleted" << std::endl;
 }
 
-void PhoneBook::addContact()
+void PhoneBook::add()
 {
 	if (phonebook[index].setContact() == 1)
 	{
@@ -31,11 +31,13 @@ void PhoneBook::search()
 		phonebook[i].getNickName();
 		std::cout <<  std::endl;
 	}
-	if (phonebook[0].checkExist() != 0)
+	
+	if (phonebook[0].checkIfExist() != 0)
 	{	
 		std::cout << "The phonebook is empty. Please add a contact first" << std::endl;
 		return ;
 	}
+
 	for (int i(0); i < 3; i++)
 	{
 		if (!std::cin)
@@ -44,7 +46,7 @@ void PhoneBook::search()
 		std::string line;
 		std::getline(std::cin, line);
 		int nb(atoi(line.c_str()));
-		if (phonebook[nb -1].checkExist() == 0)
+		if (phonebook[nb -1].checkIfExist() == 0)
 		{
 			phonebook[nb -1].getContact();
 			break ;

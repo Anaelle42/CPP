@@ -11,9 +11,9 @@ Contact::~Contact()
 
 int	checkString(std::string str)
 {
-	if(!std::cin || str.empty())
+	if (!std::cin || str.empty())
 		return 1;
-	for(size_t i(0); i < str.length(); i++)
+	for (size_t i(0); i < str.length(); i++)
 	{
 		if (std::isprint(str[i]) && !std::isspace(str[i])) 
         	return 0;
@@ -59,7 +59,7 @@ int Contact::setContact()
 	return (0);
 }
 
-int Contact::checkExist() const
+int Contact::checkIfExist() const
 {
 	if (exist == 1)
 		return (0);
