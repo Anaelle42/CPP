@@ -20,9 +20,10 @@ void PhoneBook::add()
 
 void PhoneBook::search()
 {
-	for (int i(0); i < 8 ; i++)
+	std::cout << "     Index | First Name| Last Name | Nickname  |" << std::endl;
+	for (int i(0); i < 8; i++)
 	{
-		std::cout << i + 1 << " | ";
+		std::cout << "         " << i + 1 << " | ";
 		phonebook[i].getFirstName();
 		phonebook[i].getLastName();
 		phonebook[i].getNickName();
@@ -43,7 +44,7 @@ void PhoneBook::search()
 		std::string line;
 		std::getline(std::cin, line);
 		int nb(atoi(line.c_str()));
-		if (nb <= 8 && phonebook[nb -1].checkIfExist() != 0)
+		if (nb > 0 && nb <= 8 && phonebook[nb -1].checkIfExist() != 0)
 		{
 			phonebook[nb -1].getContact();
 			break ;

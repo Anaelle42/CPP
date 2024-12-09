@@ -96,7 +96,7 @@ void Contact::getFirstName()
 {
 	if (first_name.length() <= 10)
 	{
-		for (int i(0); first_name.length() + i < 10 ; i++)
+		for (int i(0); first_name.length() + i < 10; i++)
 			std::cout << " ";
 		std::cout << first_name << "| ";
 	}
@@ -111,7 +111,7 @@ void Contact::getLastName()
 {
 	if (last_name.length() <= 10)
 	{
-		for (int i(0); last_name.length() + i < 10 ; i++)
+		for (int i(0); last_name.length() + i < 10; i++)
 			std::cout << " ";
 		std::cout << last_name << "| ";
 	}
@@ -126,7 +126,7 @@ void Contact::getNickName()
 {
 	if (nickname.length() <= 10)
 	{
-		for(int i(0); nickname.length() + i < 10 ; i++)
+		for (int i(0); nickname.length() + i < 10; i++)
 			std::cout << " ";
 		std::cout << nickname << "| ";
 	}
