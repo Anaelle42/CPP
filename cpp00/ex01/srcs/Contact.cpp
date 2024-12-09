@@ -29,7 +29,7 @@ int	checkNumber(std::string str)
 {
 	for (size_t i(0); i < str.length(); i++)
 	{
-		if(isspace(str[i]))
+		if (isspace(str[i]))
 			i++;
 		if (!std::isdigit(str[i])) 
         {
