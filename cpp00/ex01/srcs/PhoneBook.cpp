@@ -36,14 +36,16 @@ void PhoneBook::search()
 		return ;
 	}
 
+	std::string line;
+	int nb;
+
 	for (int i(0); i < 3; i++)
 	{
 		if (!std::cin)
 			break ;
 		std::cout << "Enter the index of the contact to display:" << std::endl;
-		std::string line;
 		std::getline(std::cin, line);
-		int nb(atoi(line.c_str()));
+		nb = atoi(line.c_str());
 		if (nb > 0 && nb <= 8 && phonebook[nb -1].checkIfExist() != 0)
 		{
 			phonebook[nb -1].getContact();

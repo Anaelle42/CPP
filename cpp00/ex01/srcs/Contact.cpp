@@ -69,11 +69,11 @@ int Contact::setContact()
 	if (checkString(tmpDarkestSecret))
 		return 1;
 	
-	first_name = tmpFirstName;
-	last_name = tmpLastName;
+	firstName = tmpFirstName;
+	lastName = tmpLastName;
 	nickname = tmpNickname;
-	phone_number = tmpPhoneNumber;
-	darkest_secret = tmpDarkestSecret;
+	phoneNumber = tmpPhoneNumber;
+	darkestSecret = tmpDarkestSecret;
 	exist = 1;
 	return 0;
 }
@@ -85,54 +85,63 @@ int Contact::checkIfExist() const
 
 void Contact::getContact() const
 {
-	std::cout << first_name << std::endl;
-	std::cout << last_name << std::endl;
+	std::cout << firstName << std::endl;
+	std::cout << lastName << std::endl;
 	std::cout << nickname << std::endl;;
-	std::cout << phone_number << std::endl;
-	std::cout << darkest_secret << std::endl;
+	std::cout << phoneNumber << std::endl;
+	std::cout << darkestSecret << std::endl;
 }
 
 void Contact::getFirstName()
 {
-	if (first_name.length() <= 10)
+	std::string str;
+
+	str = firstName;
+	if (str.length() <= 10)
 	{
-		for (int i(0); first_name.length() + i < 10; i++)
+		for (int i(0); str.length() + i < 10; i++)
 			std::cout << " ";
-		std::cout << first_name << "| ";
+		std::cout << str << "| ";
 	}
 	else
 	{
-		first_name.replace(9, 1, ".");
-		std::cout << first_name.substr(0, 10) << "| ";
+		str.replace(9, 1, ".");
+		std::cout << str.substr(0, 10) << "| ";
 	}
 }
 
 void Contact::getLastName()
 {
-	if (last_name.length() <= 10)
+	std::string str;
+
+	str = lastName;
+	if (str.length() <= 10)
 	{
-		for (int i(0); last_name.length() + i < 10; i++)
+		for (int i(0); str.length() + i < 10; i++)
 			std::cout << " ";
-		std::cout << last_name << "| ";
+		std::cout << str << "| ";
 	}
 	else
 	{
-		last_name.replace(9, 1, ".");
-		std::cout << last_name.substr(0, 10) << "| ";
+		str.replace(9, 1, ".");
+		std::cout << str.substr(0, 10) << "| ";
 	}
 }
 
 void Contact::getNickName()
 {
-	if (nickname.length() <= 10)
+	std::string str;
+
+	str = nickname;
+	if (str.length() <= 10)
 	{
-		for (int i(0); nickname.length() + i < 10; i++)
+		for (int i(0); str.length() + i < 10; i++)
 			std::cout << " ";
-		std::cout << nickname << "| ";
+		std::cout << str << "| ";
 	}
 	else
 	{
-		nickname.replace(9, 1, ".");
-		std::cout << nickname.substr(0, 10) << "| ";
+		str.replace(9, 1, ".");
+		std::cout << str.substr(0, 10) << "| ";
 	}
 }
