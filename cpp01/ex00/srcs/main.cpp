@@ -2,11 +2,11 @@
 
 int main()
 {
-	randomChump("Mael");
-	std :: cout << "hello" << std::endl;
-	Zombie* zombie = newZombie("Anaelle");
-	std :: cout << "hello" << std::endl;
+	randomChump("Bruno");
+
+	Zombie* zombie = newZombie("Mael");
 	zombie->announce();
 	delete zombie;
+
 	return 0;
 }

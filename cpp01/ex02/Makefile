@@ -1,4 +1,4 @@
-NAME = references
+NAME = hiThisIsBrain
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

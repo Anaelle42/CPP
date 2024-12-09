@@ -1,4 +1,4 @@
-NAME = hordeofzombies
+NAME = zombieHorde
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

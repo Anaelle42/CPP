@@ -2,20 +2,21 @@
 
 Zombie::Zombie()
 {
-	std::cout << "Zombie has been created" << std::endl;
+	std::cout << "Zombie constructor called" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "Zombie has been deleted: " << name << std::endl;
+	std::cout << "Zombie destructor called: " << _name << std::endl;
 }
 
-void Zombie::setName (std::string zombie_name)
+void Zombie::announce() const
 {
-	name = zombie_name;
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void Zombie::announce ()
+void Zombie::setName(std::string name)
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	_name = name;
 }
+
