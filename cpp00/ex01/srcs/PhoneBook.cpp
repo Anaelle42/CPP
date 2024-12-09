@@ -14,10 +14,7 @@ PhoneBook::~PhoneBook()
 void PhoneBook::add()
 {
 	if (phonebook[index].setContact() == 1)
-	{
-		std::cout << "A contact cannot have empty fields" << std::endl;
 		return ;
-	}
 	index = (index + 1) % 8;
 }
 
@@ -32,7 +29,7 @@ void PhoneBook::search()
 		std::cout <<  std::endl;
 	}
 	
-	if (phonebook[0].checkIfExist() != 0)
+	if (phonebook[0].checkIfExist() == 0)
 	{	
 		std::cout << "The phonebook is empty. Please add a contact first" << std::endl;
 		return ;
@@ -46,7 +43,7 @@ void PhoneBook::search()
 		std::string line;
 		std::getline(std::cin, line);
 		int nb(atoi(line.c_str()));
-		if (phonebook[nb -1].checkIfExist() == 0)
+		if (nb <= 8 && phonebook[nb -1].checkIfExist() != 0)
 		{
 			phonebook[nb -1].getContact();
 			break ;
