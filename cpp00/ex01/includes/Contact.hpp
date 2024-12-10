@@ -13,7 +13,7 @@ class Contact
 		std::string _nickname;
 		std::string _phoneNumber;
 		std::string _darkestSecret;
-		int _exist;
+		bool _exist;
 		
 	public:
 		Contact();

@@ -56,14 +56,10 @@ void PhoneBook::search()
 	}
 	
 	std::string line;
-
-	for (int i(0); i < 3; i++)
-	{
-		if (!std::cin)
-			break ;
-		std::cout << "Enter the index of the contact to display:" << std::endl;
-		std::getline(std::cin, line);
-		getInfo(line);
-	}
+	if (!std::cin)
+			return ;
+	std::cout << "Enter the index of the contact to display:" << std::endl;
+	std::getline(std::cin, line);
+	getInfo(line);
 }
 

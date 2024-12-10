@@ -7,7 +7,7 @@ class PhoneBook
 {
 	private:
 		Contact _phonebook[8];
-		bool _index;
+		int _index;
 
 	public:
 		PhoneBook();
