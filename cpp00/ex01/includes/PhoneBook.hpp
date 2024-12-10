@@ -7,13 +7,14 @@ class PhoneBook
 {
 	private:
 		Contact _phonebook[8];
-		int _index;
+		bool _index;
 
 	public:
 		PhoneBook();
 		~PhoneBook();
 		void add();
 		void search();
+		void	getInfo(std::string str);
 };
 
 #endif

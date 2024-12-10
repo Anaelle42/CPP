@@ -78,7 +78,7 @@ int Contact::setContact()
 	return 0;
 }
 
-int Contact::checkIfExist() const
+bool Contact::checkIfExist() const
 {
 	return _exist;
 }
@@ -98,11 +98,7 @@ void Contact::getFirstName()
 
 	str = _firstName;
 	if (str.length() <= 10)
-	{
-		for (int i(0); str.length() + i < 10; i++)
-			std::cout << " ";
-		std::cout << str << "| ";
-	}
+		std::cout << std::setw(10) << str << "| ";
 	else
 	{
 		str.replace(9, 1, ".");
@@ -116,11 +112,7 @@ void Contact::getLastName()
 
 	str = _lastName;
 	if (str.length() <= 10)
-	{
-		for (int i(0); str.length() + i < 10; i++)
-			std::cout << " ";
-		std::cout << str << "| ";
-	}
+		std::cout << std::setw(10) << str << "| ";
 	else
 	{
 		str.replace(9, 1, ".");
@@ -134,11 +126,7 @@ void Contact::getNickName()
 
 	str = _nickname;
 	if (str.length() <= 10)
-	{
-		for (int i(0); str.length() + i < 10; i++)
-			std::cout << " ";
-		std::cout << str << "| ";
-	}
+		std::cout << std::setw(10) << str << "| ";
 	else
 	{
 		str.replace(9, 1, ".");

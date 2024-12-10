@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <cstdlib>
+# include	<iomanip>
 
 class Contact
 {
@@ -19,7 +20,7 @@ class Contact
 		~Contact();
 		int setContact();
 		void getContact() const;
-		int checkIfExist() const;
+		bool checkIfExist() const;
 		void getFirstName();
 		void getLastName();
 		void getNickName();
