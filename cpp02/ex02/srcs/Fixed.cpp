@@ -139,7 +139,7 @@ Fixed Fixed::operator--()
 
 Fixed Fixed::min(Fixed& first, Fixed& second)
 {
-	if(first < second)
+	if (first < second)
 		return (first);
 	else
 		return (second);
@@ -147,7 +147,7 @@ Fixed Fixed::min(Fixed& first, Fixed& second)
 
 Fixed const Fixed::min(Fixed const& first, Fixed const& second)
 {
-	if(first < second)
+	if (first < second)
 		return (first);
 	else
 		return (second);
@@ -155,7 +155,7 @@ Fixed const Fixed::min(Fixed const& first, Fixed const& second)
 
 Fixed Fixed::max(Fixed& first, Fixed& second)
 {
-	if(first > second)
+	if (first > second)
 		return (first);
 	else
 		return (second);
@@ -163,7 +163,7 @@ Fixed Fixed::max(Fixed& first, Fixed& second)
 
 Fixed const Fixed::max(Fixed const& first, Fixed const& second)
 {
-	if(first > second)
+	if (first > second)
 		return (first);
 	else
 		return (second);
