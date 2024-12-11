@@ -3,6 +3,8 @@
 
 void ft_replace(std::string& str, std::string s1, std::string s2)
 {
+	if (s1.empty())
+		return ;
 	size_t pos = 0;
 	while ((pos = str.find(s1, pos)) != std::string::npos)
 	{	
