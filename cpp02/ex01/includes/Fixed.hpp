@@ -9,13 +9,13 @@ class Fixed
 	private:
 		int _value;
 		static const int _nbBits = 8;
-		
+
 	public:
 		Fixed();
 		Fixed(const Fixed& other);
-		~Fixed();
 		Fixed(const int other);
 		Fixed(const float other);
+		~Fixed();
 
 		void operator=(const Fixed& other);
 

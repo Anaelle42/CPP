@@ -2,8 +2,12 @@
 
 int main( void )
 {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Point a;
+	Point b(10,3);
+	Point c(65, 43);
+	Point d(12, 23);
+
+	std::cout << bsp(a, b, c, d) << std::endl;
 
 	return 0;
 }
