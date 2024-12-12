@@ -5,7 +5,7 @@ int main( void )
 	Point a (-1, -2);
 	Point b (-2 ,1);
 	Point c (1,4);
-	Point d (0.5,3);
+	Point d (0, 2);
 
 	int res;
 	
