@@ -1,8 +1,13 @@
 #include "../includes/ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string other) : ClapTrap(other, 100, 50, 20)
+ScavTrap::ScavTrap() : ClapTrap("Default", 100, 50, 20)
 {
 	std::cout << "Default constructor Scav Trap called" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
+{
+	std::cout << "Constructor Scav Trap called" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -10,16 +15,34 @@ ScavTrap::~ScavTrap()
 	std::cout << "Destructor Scav Trap called" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& other)
+{
+	this->setName(other.getName());
+	this->setHitPoints(other.getHit());
+	this->setEnergy(other.getEnergy());
+	this->setAttack(other.getAttack());
+	std::cout << "Copy constructor Scav Trap called" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+{
+	this->setName(other.getName());
+	this->setHitPoints(other.getHit());
+	this->setEnergy(other.getEnergy());
+	this->setAttack(other.getAttack());
+	return (*this);
+}
+
 void ScavTrap::attack(const std::string& target)
 {
 	if (this->getHit() > 0)
 	{
-		if (this->getEnergie() > 0)
+		if (this->getEnergy() > 0)
 		{
-			this->setEnergie();
+			this->setEnergy(this->getEnergy() - 1);
 			std::cout << "ScavTrap " << this->getName() << " attacks " << target;
 			std::cout << ", causing " << this->getAttack() << " points of damage!" << std::endl;
-			std::cout << "Energy points : " << this->getEnergie() << std::endl;
+			std::cout << "Energy points : " << this->getEnergy() << std::endl;
 		}
 		else
 			std::cout << "ScavTrap " << this->getName() << "has no energie left..." << std::endl;
@@ -28,5 +51,5 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate() const
 {
-	std::cout << "ScavTrap " << this->getName() << " is now in Gatekeeper mode" << std::endl;
+	std::cout << "ScavTrap " << this->getName() << " is now in Gatekeeper mode!" << std::endl;
 }

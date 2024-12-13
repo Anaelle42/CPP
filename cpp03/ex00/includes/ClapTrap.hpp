@@ -13,7 +13,7 @@ class ClapTrap
 
 	public:
 		ClapTrap();
-		ClapTrap(std::string other);
+		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& other);
 		~ClapTrap();
 		ClapTrap& operator=(const ClapTrap& other);
@@ -25,7 +25,7 @@ class ClapTrap
 		int getHit() const;
 		int getEnergy() const;
 		int getAttack() const;
-		void setEnergie();
+		void setEnergy();
 
 };
 

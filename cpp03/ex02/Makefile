@@ -1,4 +1,4 @@
-NAME = work
+NAME = fragTrap
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

@@ -4,22 +4,14 @@
 int main()
 {
 	ClapTrap bob("Bob", 10, 10, 10);
-	bob.attack("dragon");
-	bob.takeDamage(4);
-	bob.attack("Jacob");
-	bob.attack("Bobby");
-	bob.beRepaired(3);
-
-	// std::cout << std::endl;
-	// ScavTrap mael("mael");
-	// mael.attack("dracofeau");
-	// mael.takeDamage(150);
+	bob.attack("Dracaufeu");
 
 	std::cout << std::endl;
-	FragTrap ana("ana");
-	ana.beRepaired(1);
-	ana.attack("Jacob");
-	ana.highFivesGuys();
+
+	FragTrap max("Max");
+	max.attack("Jacob");
+	max.beRepaired(1);
+	max.highFivesGuys();
 
 	return 0;
 }

@@ -1,17 +1,40 @@
 #include "../includes/ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string other, int hit, int energie, int attack)
+ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	this->_name = other;
+	std::cout << "Default constructor Clap Trap called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name, int hit, int energie, int attack)
+{
+	this->_name = name;
 	this->_hitPoints = hit;
 	this->_energyPoints = energie;
 	this->_attackDamage = attack;
-	std::cout << "Default constructor Clap Trap called" << std::endl;
+	std::cout << "Constructor Clap Trap called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor Clap Trap called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other)
+{
+	this->_name = other.getName();
+	this->_hitPoints = other.getHit();
+	this->_energyPoints = other.getEnergy();
+	this->_attackDamage = other.getAttack();
+	std::cout << "Copy constructor Clap Trap called" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
+{
+	this->_name = other.getName();
+	this->_hitPoints = other.getHit();
+	this->_energyPoints = other.getEnergy();
+	this->_attackDamage = other.getAttack();
+	return (*this);
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -70,17 +93,32 @@ int ClapTrap::getHit() const
 	return this->_hitPoints;
 }
 
-int ClapTrap::getEnergie() const
+int ClapTrap::getEnergy() const
 {
 	return this->_energyPoints;
-}
-
-void ClapTrap::setEnergie()
-{
-	this->_energyPoints--;
 }
 
 int ClapTrap::getAttack() const
 {
 	return this->_attackDamage;
+}
+
+void ClapTrap::setName(std::string name)
+{
+	this->_name = name;
+}
+
+void ClapTrap::setHitPoints(int amount)
+{
+	this->_hitPoints = amount;
+}
+
+void ClapTrap::setEnergy(int amount)
+{
+	this->_energyPoints = amount;
+}
+
+void ClapTrap::setAttack(int amount)
+{
+	this->_attackDamage = amount;
 }
