@@ -1,4 +1,4 @@
-NAME = diamond
+NAME = diamondTrap
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

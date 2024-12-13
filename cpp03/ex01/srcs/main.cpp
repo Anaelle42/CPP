@@ -2,7 +2,7 @@
 
 int main()
 {
-	ClapTrap bob("Bob", 10, 10, 10);
+	ClapTrap bob("Bob");
 	bob.attack("Dracaufeu");
 
 	std::cout << std::endl;
