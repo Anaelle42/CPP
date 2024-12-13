@@ -6,14 +6,14 @@ int main()
 
 	bob.attack("dragon");
 	bob.takeDamage(4);
-	bob.attack("Jacob");
-	bob.attack("Bobby");
 	bob.beRepaired(3);
 	
+	// std::cout << std::endl;
 	// bob.takeDamage(20);
 	// bob.attack("Bobby");
 	// bob.beRepaired(10);
 
+	// std::cout << std::endl;
 	// bob.beRepaired(1);
 	// bob.beRepaired(1);
 	// bob.beRepaired(1);

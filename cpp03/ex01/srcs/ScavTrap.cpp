@@ -12,21 +12,21 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::attack(const std::string& target)
 {
-	if (getHit() > 0)
+	if (this->getHit() > 0)
 	{
-		if (getEnergie() > 0)
+		if (this->getEnergie() > 0)
 		{
-			setEnergie();
-			std::cout << "ScavTrap " << getName() << " attacks " << target;
-			std::cout << ", causing " << getAttack() << " points of damage!" << std::endl;
-			std::cout << "Energie points : " << getEnergie() << std::endl;
+			this->setEnergie();
+			std::cout << "ScavTrap " << this->getName() << " attacks " << target;
+			std::cout << ", causing " << this->getAttack() << " points of damage!" << std::endl;
+			std::cout << "Energy points : " << this->getEnergie() << std::endl;
 		}
 		else
-			std::cout << "ScavTrap " << getName() << " has 0 energie ..." << std::endl;
+			std::cout << "ScavTrap " << this->getName() << "has no energie left..." << std::endl;
 	}
 }
 
-void ScavTrap::guardGate()
+void ScavTrap::guardGate() const
 {
-	std::cout << "ScavTrap " << getName() << " is now in Gatekeeper mode " << std::endl;
+	std::cout << "ScavTrap " << this->getName() << " is now in Gatekeeper mode" << std::endl;
 }
