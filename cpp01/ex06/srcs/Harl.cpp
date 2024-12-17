@@ -40,9 +40,9 @@ void Harl::complain(std::string level)
 {
 	std::string tab[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int levelIndex = -1;
-	for(int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		if(!level.compare(tab[i]))
+		if (!level.compare(tab[i]))
 		{
 			levelIndex = i;
 			break;
@@ -62,6 +62,5 @@ void Harl::complain(std::string level)
 			break;
 		default :
 			std::cout << "[Probably complaining about insignificant problems]" << std::endl;
-	}
-		
+	}	
 }

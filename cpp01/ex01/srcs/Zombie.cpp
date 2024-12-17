@@ -7,16 +7,15 @@ Zombie::Zombie()
 
 Zombie::~Zombie()
 {
-	std::cout << "Zombie destructor called: " << _name << std::endl;
+	std::cout << "Zombie destructor called: " << this->_name << std::endl;
 }
 
 void Zombie::announce() const
 {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 void Zombie::setName(std::string name)
 {
-	_name = name;
+	this->_name = name;
 }
-

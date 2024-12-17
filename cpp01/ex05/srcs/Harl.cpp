@@ -40,9 +40,9 @@ void Harl::complain(std::string level)
 {
 	std::string tab[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void (Harl::*ftab[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	for(int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		if(!level.compare(tab[i]))
+		if (!level.compare(tab[i]))
 		{
 			(this->*ftab[i])();
 			return ;

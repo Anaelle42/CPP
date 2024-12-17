@@ -10,6 +10,7 @@ class Harl
 		void info();
 		void warning();
 		void error();
+
 	public:
 		Harl();
 		~Harl();
