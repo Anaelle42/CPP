@@ -3,21 +3,21 @@
 Cat::Cat()
 {
 	setType("Cat");
-	_brain = new Brain();
+	this->_brain = new Brain();
 	std::cout << "Default constructor Cat called" << std::endl;
 }
 
 Cat::Cat(const Cat& other)
 {
 	this->_type = other._type;
-	this->_brain = other._brain;
+	this->_brain = new Brain(*other._brain);
 	std::cout << "Copy constructor Cat called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other)
 {
 	this->_type = other._type;
-	this->_brain = other._brain;
+	*this->_brain = *other._brain;
 	return (*this);
 }
 

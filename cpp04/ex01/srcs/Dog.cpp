@@ -3,14 +3,14 @@
 Dog::Dog()
 {
 	setType("Dog");
-	_brain = new Brain();
+	this->_brain = new Brain();
 	std::cout << "Default constructor Dog called" << std::endl;
 }
 
 Dog::Dog(const Dog& other)
 {
 	this->_type = other._type;
-	*this->_brain = *other._brain;
+	this->_brain = new Brain(*other._brain);
 	std::cout << "Copy constructor Dog called" << std::endl;
 }
 

@@ -33,6 +33,12 @@ int main()
 	Dog a;
 	{
 		Dog b = a;
+		
+	}
+	Cat aa;
+	{
+		Cat bb;
+		bb = aa;
 	}
 
 	return 0;
