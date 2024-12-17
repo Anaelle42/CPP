@@ -30,5 +30,10 @@ int main()
 	for (int i (0); i < 6; i++)
 		delete animals[i];
 
+	Dog a;
+	{
+		Dog b = a;
+	}
+
 	return 0;
 }

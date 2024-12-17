@@ -1,23 +1,33 @@
 #include "../includes/Cat.hpp"
 
-Cat::Cat() : type("Cat")
+Cat::Cat()
 {
+	setType("Cat");
+	_brain = new Brain();
 	std::cout << "Default constructor Cat called" << std::endl;
-	brain = new Brain();
+}
+
+Cat::Cat(const Cat& other)
+{
+	this->_type = other._type;
+	this->_brain = other._brain;
+	std::cout << "Copy constructor Cat called" << std::endl;
+}
+
+Cat& Cat::operator=(const Cat& other)
+{
+	this->_type = other._type;
+	this->_brain = other._brain;
+	return (*this);
 }
 
 Cat::~Cat()
 {
-	delete brain;
+	delete this->_brain;
 	std::cout << "Destructor Cat called" << std::endl;
-}
-
-std::string Cat::getType() const
-{
-	return type;
 }
 
 void Cat::makeSound() const
 {
-	std::cout << "Miaou Miaou" << std::endl;
+	std::cout << "Miaou miaou" << std::endl;
 }

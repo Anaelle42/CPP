@@ -1,4 +1,4 @@
-NAME = polymorphism
+NAME = settheWorldOnFire
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
