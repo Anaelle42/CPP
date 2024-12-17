@@ -17,7 +17,7 @@ class Fixed
 		Fixed(const float other);
 		~Fixed();
 
-		void operator=(const Fixed& other);
+		Fixed& operator=(const Fixed& other);
 		bool operator>(Fixed const& other) const;
 		bool operator<(Fixed const& other) const;
 		bool operator>=(Fixed const& other) const;
@@ -38,9 +38,9 @@ class Fixed
 		float toFloat(void) const;
 		int toInt(void) const;
 		static Fixed min(Fixed& first, Fixed& second);
-		static Fixed const min(Fixed const& first, Fixed const& second);
+		static const Fixed min(Fixed const& first, Fixed const& second);
 		static Fixed max(Fixed& first, Fixed& second);
-		static Fixed const max(Fixed const& first, Fixed const& second);
+		static const Fixed max(Fixed const& first, Fixed const& second);
 };
 
 std::ostream &operator<<(std::ostream& os, const Fixed& other);

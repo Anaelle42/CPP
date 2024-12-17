@@ -16,9 +16,10 @@ Point::Point(const Point& other) : _x (other._x), _y(other._y)
 {
 }
 
-void Point::operator=(const Point& other)
+Point& Point::operator=(const Point& other)
 {
-	(void)other;
+	(void) other;
+	return (*this);
 }
 
 const Fixed Point::getX() const
