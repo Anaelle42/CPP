@@ -10,6 +10,6 @@ int main(int argc, char **argv)
         for (size_t j(0); j < str.length(); j++)
 			std::cout << (char) toupper(str[j]);
     }
-    std::cout << std:: endl;
+    std::cout << std::endl;
     return (0);
 }

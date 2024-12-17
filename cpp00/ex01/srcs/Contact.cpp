@@ -2,7 +2,7 @@
 
 Contact::Contact()
 {
-	_exist = 0;
+	this->_exist = 0;
 }
 
 Contact::~Contact()
@@ -69,34 +69,34 @@ int Contact::setContact()
 	if (checkString(tmpDarkestSecret))
 		return 1;
 	
-	_firstName = tmpFirstName;
-	_lastName = tmpLastName;
-	_nickname = tmpNickname;
-	_phoneNumber = tmpPhoneNumber;
-	_darkestSecret = tmpDarkestSecret;
-	_exist = 1;
+	this->_firstName = tmpFirstName;
+	this->_lastName = tmpLastName;
+	this->_nickname = tmpNickname;
+	this->_phoneNumber = tmpPhoneNumber;
+	this->_darkestSecret = tmpDarkestSecret;
+	this->_exist = 1;
 	return 0;
 }
 
 bool Contact::checkIfExist() const
 {
-	return _exist;
+	return this->_exist;
 }
 
 void Contact::getContact() const
 {
-	std::cout << _firstName << std::endl;
-	std::cout << _lastName << std::endl;
-	std::cout << _nickname << std::endl;;
-	std::cout << _phoneNumber << std::endl;
-	std::cout << _darkestSecret << std::endl;
+	std::cout << this->_firstName << std::endl;
+	std::cout << this->_lastName << std::endl;
+	std::cout << this->_nickname << std::endl;;
+	std::cout << this->_phoneNumber << std::endl;
+	std::cout << this->_darkestSecret << std::endl;
 }
 
 void Contact::getFirstName()
 {
 	std::string str;
 
-	str = _firstName;
+	str = this->_firstName;
 	if (str.length() <= 10)
 		std::cout << std::setw(10) << str << "| ";
 	else
@@ -110,7 +110,7 @@ void Contact::getLastName()
 {
 	std::string str;
 
-	str = _lastName;
+	str = this->_lastName;
 	if (str.length() <= 10)
 		std::cout << std::setw(10) << str << "| ";
 	else
@@ -124,7 +124,7 @@ void Contact::getNickName()
 {
 	std::string str;
 
-	str = _nickname;
+	str = this->_nickname;
 	if (str.length() <= 10)
 		std::cout << std::setw(10) << str << "| ";
 	else

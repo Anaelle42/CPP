@@ -14,7 +14,7 @@ class PhoneBook
 		~PhoneBook();
 		void add();
 		void search();
-		void	getInfo(std::string str);
+		void getInfo(std::string str);
 };
 
 #endif
