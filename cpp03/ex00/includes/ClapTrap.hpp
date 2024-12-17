@@ -26,7 +26,6 @@ class ClapTrap
 		int getEnergy() const;
 		int getAttack() const;
 		void setEnergy();
-
 };
 
 # endif
