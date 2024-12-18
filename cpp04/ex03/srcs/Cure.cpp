@@ -8,17 +8,23 @@ Cure::Cure(const Cure& other) : AMateria (other._type)
 {
 }
 
+Cure& Cure::operator=(const Cure& other)
+{
+	this->_type = other.getType();
+	return (*this);
+}
+
 Cure::~Cure()
 {
 }
 
 AMateria* Cure::clone() const
 {
-	Cure* materia = new Cure(*this);
-	return (materia);
+	Cure* cure = new Cure(*this);
+	return (cure);
 }
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

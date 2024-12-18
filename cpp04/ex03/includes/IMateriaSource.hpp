@@ -1,7 +1,6 @@
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
 
-// instance de materia source
 #include "AMateria.hpp"
 
 class IMateriaSource

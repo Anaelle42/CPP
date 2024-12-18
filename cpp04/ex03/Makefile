@@ -6,6 +6,7 @@ SRC_DIR = srcs
 FILES = AMateria.cpp \
 		Ice.cpp \
 		Cure.cpp \
+		Character.cpp \
 		main.cpp
 
 SRC = $(addprefix $(SRC_DIR)/, $(FILES))
@@ -18,7 +19,9 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	c++ $(FLAGS) $(OBJ) -o $(NAME) -g
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp 
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp includes/AMateria.hpp \
+includes/Cure.hpp includes/Ice.hpp includes/Character.hpp \
+includes/ICharacter.hpp
 	@mkdir -p ${dir $@}
 	c++ $(FLAGS) -c $< -o $@
 

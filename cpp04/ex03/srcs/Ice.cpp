@@ -8,17 +8,23 @@ Ice::Ice(const Ice& other) : AMateria (other._type)
 {
 }
 
+Ice& Ice::operator=(const Ice& other)
+{
+	this->_type = other.getType();
+	return (*this);
+}
+
 Ice::~Ice()
 {
 }
 
 AMateria* Ice::clone() const
 {
-	Ice* materia = new Ice(*this);
-	return (materia);
+	Ice* ice = new Ice(*this);
+	return (ice);
 }
 
 void Ice::use(ICharacter& target)
 {
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
