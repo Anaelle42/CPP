@@ -2,20 +2,20 @@
 
 Character::Character() : _name("Jambon")
 {
-	for (int i(0); i < 3; i++)
+	for (int i(0); i < 4; i++)
 		_inventory[i] = NULL;
 }
 
 Character::Character(std::string name) : _name(name)
 {
-	for (int i(0); i < 3; i++)
+	for (int i(0); i < 4; i++)
 		_inventory[i] = NULL;
 }
 
 Character::Character(const Character& other)
 {
 	this->_name = other.getName();
-	for (int i(0); i < 3; i++)
+	for (int i(0); i < 4; i++)
 	{
 		if (other._inventory[i])
 			_inventory[i] = other._inventory[i]->clone();
@@ -26,25 +26,28 @@ Character::Character(const Character& other)
 
 Character& Character::operator=(const Character& other)
 {
-	this->_name = other.getName();
-	for (int i(0); i < 3; i++)
+	if (this != &other)
 	{
-		if (_inventory[i])
+		this->_name = other.getName();
+		for (int i(0); i < 4; i++)
 		{
-			delete _inventory[i];
-			_inventory[i] = NULL;
+			if (_inventory[i])
+			{
+				delete _inventory[i];
+				_inventory[i] = NULL;
+			}
+			if (other._inventory[i])
+				_inventory[i] = other._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
 		}
-		if (other._inventory[i])
-			_inventory[i] = other._inventory[i]->clone();
-		else
-			_inventory[i] = NULL;
 	}
 	return (*this);
 }
 
 Character::~Character()
 {
-	for (int i(0); i < 3; i++)
+	for (int i(0); i < 4; i++)
 	{
 		if (_inventory[i])
 			delete _inventory[i];
@@ -58,7 +61,7 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	for (int i(0); i < 3; i++)
+	for (int i(0); i < 4; i++)
 	{
 		if (_inventory[i] == m)
 		{
@@ -66,7 +69,7 @@ void Character::equip(AMateria* m)
 			return ;
 		}
 	}
-	for (int i(0); i < 3; i++)
+	for (int i(0); i < 4; i++)
 	{
 		if (_inventory[i] == NULL)
 		{

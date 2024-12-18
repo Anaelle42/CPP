@@ -1,12 +1,13 @@
 NAME = interface
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRC_DIR = srcs
 FILES = AMateria.cpp \
 		Ice.cpp \
 		Cure.cpp \
 		Character.cpp \
+		MateriaSource.cpp \
 		main.cpp
 
 SRC = $(addprefix $(SRC_DIR)/, $(FILES))
@@ -21,7 +22,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp includes/AMateria.hpp \
 includes/Cure.hpp includes/Ice.hpp includes/Character.hpp \
-includes/ICharacter.hpp
+includes/ICharacter.hpp includes/IMateriaSource.hpp includes/MateriaSource.hpp
 	@mkdir -p ${dir $@}
 	c++ $(FLAGS) -c $< -o $@
 

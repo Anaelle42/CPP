@@ -1,5 +1,9 @@
 #include "../includes/AMateria.hpp"
 
+AMateria::AMateria() : _type("Default")
+{
+}
+
 AMateria::AMateria(std::string const & type)
 {
 	this->_type = type;
@@ -8,6 +12,12 @@ AMateria::AMateria(std::string const & type)
 AMateria::AMateria(const AMateria& other)
 {
 	this->_type = other._type;
+}
+
+AMateria& AMateria::operator=(const AMateria& other)
+{
+	this->_type = other.getType();
+	return (*this);
 }
 
 AMateria::~AMateria()
