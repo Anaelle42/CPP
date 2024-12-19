@@ -8,13 +8,13 @@ Animal::Animal()
 
 Animal::Animal(const Animal& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	std::cout << "Copy constructor Animal called" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	return (*this);
 }
 

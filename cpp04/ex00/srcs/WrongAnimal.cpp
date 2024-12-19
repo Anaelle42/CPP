@@ -8,13 +8,13 @@ WrongAnimal::WrongAnimal()
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	std::cout << "Copy constructor Wrong Animal called" << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	return (*this);
 }
 

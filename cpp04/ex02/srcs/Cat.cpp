@@ -9,14 +9,14 @@ Cat::Cat()
 
 Cat::Cat(const Cat& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	this->_brain = new Brain(*other._brain);
 	std::cout << "Copy constructor Cat called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	*this->_brain = *other._brain;
 	return (*this);
 }

@@ -13,6 +13,7 @@ int main()
 
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
+	AMateria *bis = tmp;
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
@@ -24,13 +25,9 @@ int main()
 
 	me->use(3, *bob);
 
-	// Character mael;
-	// AMateria *tmpmael = new Ice();
-	// mael.equip(tmpmael);
-	// {
-	// 	Character anaelle(mael);
-	// 	anaelle.use(0, mael);
-	// }
+	me->unequip(0);
+	delete bis;
+	
 	delete bob;
 	delete me;
 	delete src;

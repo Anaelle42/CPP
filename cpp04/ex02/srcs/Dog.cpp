@@ -9,14 +9,14 @@ Dog::Dog()
 
 Dog::Dog(const Dog& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	this->_brain = new Brain(*other._brain);
 	std::cout << "Copy constructor Dog called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	*this->_brain = *other._brain;
 	return (*this);
 }

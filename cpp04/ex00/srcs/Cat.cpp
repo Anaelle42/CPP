@@ -8,13 +8,13 @@ Cat::Cat()
 
 Cat::Cat(const Cat& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	std::cout << "Copy constructor Cat called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	return (*this);
 }
 

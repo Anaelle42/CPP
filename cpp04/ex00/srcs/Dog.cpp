@@ -8,13 +8,13 @@ Dog::Dog()
 
 Dog::Dog(const Dog& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	std::cout << "Copy constructor Dog called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	return (*this);
 }
 

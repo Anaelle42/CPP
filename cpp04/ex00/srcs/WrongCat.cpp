@@ -8,13 +8,13 @@ WrongCat::WrongCat()
 
 WrongCat::WrongCat(const WrongCat& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	std::cout << "Copy constructor Wrong Cat called" << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other)
 {
-	this->_type = other._type;
+	this->_type = other.getType();
 	return (*this);
 }
 
