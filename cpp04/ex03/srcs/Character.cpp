@@ -74,15 +74,16 @@ void Character::equip(AMateria* m)
 		if (_inventory[i] == NULL)
 		{
 			_inventory[i] = m;
-			break;
+			return ;
 		}
 	}
+	std::cout << "Can't equip, inventory full" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4)
-		_inventory[idx] = NULL; // ?
+		_inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
