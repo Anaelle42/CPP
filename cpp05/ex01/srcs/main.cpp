@@ -1,18 +1,14 @@
-#include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 
 int main()
 {
 	try
 	{
-		Bureaucrat didier("Didier", 150);
-		std::cout << "Name : " << didier.getName() << std::endl;
-		std::cout << "Grade : " << didier.getGrade() << std::endl;
+		Form fiche("resto", 20, 50);
+		std::cout << fiche;
 
-		didier.incrementGrade();
-		std::cout << didier;
-
-		didier.decrementGrade();
-		std::cout << didier;
+		//fiche.decrementGrade();
+		//std::cout << fiche;
 	
 	}
 	catch (std::exception &e)
