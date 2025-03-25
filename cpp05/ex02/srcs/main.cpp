@@ -7,10 +7,10 @@ int main()
 		Bureaucrat didier("Didier", 10);
 		std::cout << didier;
 
-		Form fiche("fiche", 20, 50);
-		std::cout << fiche;
+		// Form fiche("fiche", 20, 50);
+		// std::cout << fiche;
 
-		didier.signForm(fiche);
+		// didier.signForm(fiche);
 		// didier.signForm(fiche);
 	}
 	catch (std::exception &e)
