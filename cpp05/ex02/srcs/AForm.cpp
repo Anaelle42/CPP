@@ -78,3 +78,9 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 	else
 		throw Form::GradeTooLowException();
 }
+
+void Form::execute(Bureaucrat const &executor) const
+{
+	if (this->_isSigned && executor.getGrade() <= this->_gradeToExecute)
+		execute;
+}
