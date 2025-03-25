@@ -4,12 +4,16 @@ int main()
 {
 	try
 	{
+		Bureaucrat didier("Didier", 10);
+		std::cout << didier;
+
 		Form fiche("resto", 20, 50);
 		std::cout << fiche;
 
-		//fiche.decrementGrade();
+		didier.signForm(fiche);
+		//didier.signForm(fiche);
+
 		//std::cout << fiche;
-	
 	}
 	catch (std::exception &e)
 	{

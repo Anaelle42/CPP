@@ -17,7 +17,7 @@ Form::~Form()
 {
 }
 
-Form::Form(const Form& other) : _name(other.getName()), _gradeToSign(other.getGradeSigned) ,_gradeToExecute(other.getGradeExecute)
+Form::Form(const Form& other) : _name(other.getName()), _gradeToSign(other.getGradeSigned()) ,_gradeToExecute(other.getGradeExecute())
 {
     _isSigned = other.getSigned();
 }
@@ -39,12 +39,12 @@ bool Form::getSigned() const
     return (this->_isSigned);
 }
 
-const int Form::getGradeSigned() const
+int Form::getGradeSigned() const
 {
     return (this->_gradeToSign);
 }
 
-const int Form::getGradeExecute() const
+int Form::getGradeExecute() const
 {
     return (this->_gradeToExecute);
 }
@@ -63,10 +63,18 @@ std::ostream &operator<<(std::ostream& os, const Form& other)
 {
 	os << "Form " << other.getName();
     if (other.getSigned() != 0)
-        os << "is signed, ";
+        os << ", is signed. ";
     else
-        os << "is not signed, ";
-    os << "grade to signed " << other.getGradeSigned();
-    os << "grade to execute " << other.getGradeExecute() << std::endl;
+        os << ", is not signed. ";
+    os << "Grade to signed : " << other.getGradeSigned();
+    os << ", grade to execute : " << other.getGradeExecute() << std::endl;
 	return (os);
+}
+
+void Form::beSigned(Bureaucrat &bureaucrat)
+{
+	if (bureaucrat.getGrade() <= this->_gradeToSign)
+		this->_isSigned = 1;
+	else
+		throw Form::GradeTooLowException();
 }
