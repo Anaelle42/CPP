@@ -1,27 +1,23 @@
 #include "../includes/Bureaucrat.hpp"
 #include <cstdlib>
+#include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
 
 int main()
 {
-	// try
-	// {
-	// 	Bureaucrat didier("Didier", 10);
-	// 	std::cout << didier;
-
-	// 	// Form fiche("fiche", 20, 50);
-	// 	// std::cout << fiche;
-
-	// 	// didier.signForm(fiche);
-	// 	// didier.signForm(fiche);
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-
-	srand(time(0));
-
-
+	try
+	{
+		srand(time(0));
+		Bureaucrat didier("didier", 45);
+		AForm *form = new PresidentialPardonForm("mael");
+		didier.signForm(*form);
+		didier.executeForm(*form);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	
 	return (0);
 }

@@ -1,9 +1,9 @@
-#ifndef PRESIDENTIALPARDONFORM.HPP
-# define PRESIDENTIALPARDONFORM.HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
-#include <iostream>
+#include "AForm.hpp"
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public AForm
 {
 	public:
 		PresidentialPardonForm();
@@ -11,6 +11,8 @@ class PresidentialPardonForm
 		PresidentialPardonForm(const PresidentialPardonForm& other);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 		~PresidentialPardonForm();
+
+		void execute(Bureaucrat const &executor) const;
 };
 
 #endif

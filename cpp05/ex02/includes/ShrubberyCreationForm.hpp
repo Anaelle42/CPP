@@ -1,10 +1,10 @@
-#ifndef SHRUBBERYCREATIONFORM.HPP
-# define SHRUBBERYCREATIONFORM.HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-#include "AForm.hpp" // grade ??
+#include "AForm.hpp"
 #include <fstream>
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public AForm
 {
 	public:
 		ShrubberyCreationForm();
@@ -12,6 +12,8 @@ class ShrubberyCreationForm
 		ShrubberyCreationForm(const ShrubberyCreationForm& other);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 		~ShrubberyCreationForm();
+
+		void execute(Bureaucrat const &executor) const;
 };
 
 #endif

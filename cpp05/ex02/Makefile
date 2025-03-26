@@ -5,6 +5,9 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC_DIR = srcs
 FILES = Bureaucrat.cpp \
 		AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
 		main.cpp
 
 SRC = $(addprefix $(SRC_DIR)/, $(FILES))
@@ -17,7 +20,10 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	c++ $(FLAGS) $(OBJ) -o $(NAME) -g
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp  includes/Bureaucrat.hpp includes/AForm.hpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp  includes/Bureaucrat.hpp includes/AForm.hpp \
+	includes/PresidentialPardonForm.hpp includes/ShrubberyCreationForm.hpp \
+	includes/RobotomyRequestForm.hpp
+
 	@mkdir -p ${dir $@}
 	c++ $(FLAGS) -c $< -o $@
 
