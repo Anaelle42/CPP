@@ -5,8 +5,7 @@ int main()
 	try
 	{
 		Bureaucrat didier("Didier", 150);
-		std::cout << "Name : " << didier.getName() << std::endl;
-		std::cout << "Grade : " << didier.getGrade() << std::endl;
+		std::cout << didier;
 
 		didier.incrementGrade();
 		std::cout << didier;

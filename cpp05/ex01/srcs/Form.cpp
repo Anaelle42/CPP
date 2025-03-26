@@ -19,7 +19,7 @@ Form::~Form()
 
 Form::Form(const Form& other) : _name(other.getName()), _gradeToSign(other.getGradeSigned()) ,_gradeToExecute(other.getGradeExecute())
 {
-    _isSigned = other.getSigned();
+    this->_isSigned = other.getSigned();
 }
 
 Form& Form::operator=(const Form& other)
