@@ -91,10 +91,10 @@ std::string AForm::getTarget() const
 
 void AForm::setTarget(std::string target)
 {
-	_target = target;
+	this->_target = target;
 }
 
 void AForm::setSign(int sign)
 {
-	_isSigned = sign;
+	this->_isSigned = sign;
 }
