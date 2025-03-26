@@ -1,5 +1,4 @@
 #include "../includes/Bureaucrat.hpp"
-#include <cstdlib>
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
