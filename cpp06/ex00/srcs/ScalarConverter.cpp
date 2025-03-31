@@ -121,16 +121,12 @@ void checkString(std::string s)
     {
         if (s[i] == '.')
             point++;
-        else if ((i == 0 && (s[i] == '+' || s[i] == '-')) || (i == (s.length() -1) && s[i] == 'f'))
-            i++;
-        else if (s[i] != '\0' && !std::isdigit(s[i])) 
+        else if ((!((i == 0 && (s[i] == '+' || s[i] == '-')) || (i == (s.length() - 1) && s[i] == 'f') || std::isdigit(s[i]))) || point > 1)
         {
-            std::cout << "invalid" << std::endl;
+            std::cout << "The type conversion is impossible." << std::endl;
             return ;
         }
     }
-    if (point > 1)
-        return ;
 
     if (point == 0)
         return (toInt(s));
