@@ -23,11 +23,15 @@ void toChar(std::string string)
 {
     char c = string[0];
 
+    if (std::isprint(string[0]))
+        std::cout << "char: " << c << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
+
     int i = static_cast<int>(c);
     float f = static_cast<float>(c);
     double d = static_cast<double>(c);
 
-    std::cout << "char: " << c << std::endl;
     std::cout << "int: " << i << std::endl;
     std::cout << "float: " << f << std::endl;
     std::cout << "double: " << d << std::endl;
@@ -37,13 +41,19 @@ void toInt(std::string string)
 {
     int i = atoi(string.c_str());
 
-    char c = static_cast<char>(i);
+    if (i >= 33 && i <= 126)
+    {
+        char c = static_cast<char>(i);
+        std::cout << "char: " << c << std::endl;
+    }
+    else
+        std::cout << "char: Non displayable" << std::endl;
+
     float f = static_cast<float>(i);
     double d = static_cast<double>(i);
 
-    std::cout << "char: " << c << std::endl;
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << f << std::endl;
+    std::cout << "float: " << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
 }
 
@@ -51,28 +61,39 @@ void toDouble(std::string string)
 {
     double d = atof(string.c_str());
     
+    if (d >= 33 && d <= 126)
+    {
+        char c = static_cast<char>(d);
+        std::cout << "char: " << c << std::endl;
+    }
+    else
+        std::cout << "char: Non displayable" << std::endl;
+
+
     int i = static_cast<int>(d);
-    char c = static_cast<char>(d);
     float f = static_cast<float>(d);
 
-    std::cout << "char: " << c << std::endl;
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << f << std::endl;
+    std::cout << "float: " << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
 }
 
 void toFloat(std::string string)
 {
-    std::cout << "float" << std::endl;
     float f = strtof(string.c_str(), NULL);
-    
+    if (f >= 33 && f <= 126)
+    {
+        char c = static_cast<char>(f);
+        std::cout << "char: " << c << std::endl;
+    }
+    else
+        std::cout << "char: Non displayable" << std::endl;
+
     int i = static_cast<int>(f);
-    char c = static_cast<char>(f);
     double d = static_cast<double>(f);
 
-    std::cout << "char: " << c << std::endl;
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << f << std::endl;
+    std::cout << "float: " << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
 }
 
