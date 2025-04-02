@@ -13,6 +13,7 @@ class ScalarConverter
         ~ScalarConverter();
 
         static void convert(std::string str);
+        static void convert2(std::string str);
 };
 
 #endif

@@ -2,6 +2,9 @@
 # define SPAN_HPP
 
 #include <iostream>
+#include <map>
+#include <vector>
+#include <list>
 
 class FullException : public std::exception
 {
@@ -18,7 +21,8 @@ class NoDistanceException : public std::exception
 class Span
 {
 	private:
-	protected:
+		int _max;
+		_span;
 
 	public:
 		Span();

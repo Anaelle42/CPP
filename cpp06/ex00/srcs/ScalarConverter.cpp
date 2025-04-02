@@ -161,3 +161,25 @@ void ScalarConverter::convert(std::string s)
 }
 
 // overflow et 0?
+#include <cmath>
+void ScalarConverter::convert2(std::string number)
+{
+    const char        *n = number.c_str();
+    if (std::isinf(std::atof(n)) || std::isnan(std::atof(n)))
+    {
+        std::cout << "char: "
+                                << "impossible" << std::endl;
+        std::cout << "int: "
+                                << "impossible" << std::endl;
+    }
+    else
+    {
+        if (isprint((char)std::atof(n)))
+                std::cout << "char: " << (char)std::atof(n) << std::endl;
+        else
+                std::cout << "char: " << "Non displayable" << std::endl;
+        std::cout << "int: " << std::atoi(n) << std::endl;
+    }
+    std::cout << "float: " << (float)std::atof(n) << "f" << std::endl;
+    std::cout << "double: " << std::atof(n) << std::endl;
+}
