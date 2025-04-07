@@ -22,7 +22,8 @@ class Span
 {
 	private:
 		int _max;
-		_span;
+		std::vector<int> _span;
+		int _nb;
 
 	public:
 		Span();
@@ -31,9 +32,11 @@ class Span
 		Span& operator=(const Span& other);
 		~Span();
 
-		void addNumber();
-		void  shortestSpan();
+		void addNumber(int n);
+		void shortestSpan();
 		void longestSpan();
+		
+		void printSpan();
 };
 
 #endif
