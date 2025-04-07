@@ -8,10 +8,19 @@ int main()
 	try
 	{
 		srand(time(0));
-		Bureaucrat didier("didier", 45);
+		Bureaucrat didier("Didier", 45);
+		Bureaucrat alex("Alex", 5);
+
 		AForm *form = new PresidentialPardonForm("mael");
+		// AForm *form = new RobotomyRequestForm("mael");
+		// AForm *form = new ShrubberyCreationForm("mael");
+
 		didier.signForm(*form);
 		didier.executeForm(*form);
+		
+		alex.signForm(*form);
+		alex.executeForm(*form);
+
 	}
 	catch (std::exception &e)
 	{

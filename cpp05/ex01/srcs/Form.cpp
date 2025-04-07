@@ -17,15 +17,15 @@ Form::~Form()
 {
 }
 
-Form::Form(const Form& other) : _name(other.getName()), _gradeToSign(other.getGradeSigned()) ,_gradeToExecute(other.getGradeExecute())
+Form::Form(const Form& other) : _name(other.getName()), _gradeToSign(other.getGradeToSigned()) ,_gradeToExecute(other.getGradeToExecute())
 {
-    this->_isSigned = other.getSigned();
+    this->_isSigned = other.getIsSigned();
 }
 
 Form& Form::operator=(const Form& other)
 {
     if (this != &other)
-		this->_isSigned = other.getSigned();
+		this->_isSigned = other.getIsSigned();
 	return (*this);
 }
 
@@ -34,17 +34,17 @@ std::string Form::getName() const
     return (this->_name);
 }
 
-bool Form::getSigned() const
+bool Form::getIsSigned() const
 {
     return (this->_isSigned);
 }
 
-int Form::getGradeSigned() const
+int Form::getGradeToSigned() const
 {
     return (this->_gradeToSign);
 }
 
-int Form::getGradeExecute() const
+int Form::getGradeToExecute() const
 {
     return (this->_gradeToExecute);
 }
@@ -62,12 +62,12 @@ const char* Form::GradeTooLowException::what() const throw()
 std::ostream &operator<<(std::ostream& os, const Form& other)
 {
 	os << "Form " << other.getName();
-    if (other.getSigned() != 0)
-        os << ", is signed. ";
+    if (other.getIsSigned() != 0)
+        os << " is signed. ";
     else
-        os << ", is not signed. ";
-    os << "Grade to signed : " << other.getGradeSigned();
-    os << ", grade to execute : " << other.getGradeExecute() << std::endl;
+        os << " is not signed. ";
+    os << "Grade to signed : " << other.getGradeToSigned();
+    os << ", grade to execute : " << other.getGradeToExecute() << std::endl;
 	return (os);
 }
 

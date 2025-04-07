@@ -20,9 +20,9 @@ class Form
         ~Form();
 
     	std::string getName() const;
-		bool getSigned() const;
-        int getGradeSigned() const;
-        int getGradeExecute() const;
+		bool getIsSigned() const;
+        int getGradeToSigned() const;
+        int getGradeToExecute() const;
 
 		void beSigned(Bureaucrat &bureaucrat);
 
