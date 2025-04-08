@@ -62,7 +62,7 @@ void toInt(std::string s)
 
 void toDouble(std::string s)
 {
-    double d = atof(s.c_str());
+    double d = std::strtod(s.c_str(), NULL);
     
     if (d >= 33 && d <= 126)
     {
@@ -77,10 +77,15 @@ void toDouble(std::string s)
 
 	std::cout << "int: " << i << std::endl;
 	if (f - i == 0)
-    	std::cout << "float: " << f << ".0f" << std::endl;
+    {
+		std::cout << "float: " << f << ".0f" << std::endl;
+		std::cout << "double: " << d << ".0" << std::endl;
+	}
 	else
-	    std::cout << "float: " << f << "f" << std::endl;
-    std::cout << "double: " << d << std::endl;
+	{
+		std::cout << "float: " << f << "f" << std::endl;
+		std::cout << "double: " << d << std::endl;
+	}
 }
 
 void toFloat(std::string s)
@@ -101,10 +106,15 @@ void toFloat(std::string s)
 
     std::cout << "int: " << i << std::endl;
 	if (f - i == 0)
-    	std::cout << "float: " << f << ".0f" << std::endl;
+    {
+		std::cout << "float: " << f << ".0f" << std::endl;
+		std::cout << "double: " << d << ".0" << std::endl;
+	}
 	else
-	    std::cout << "float: " << f << "f" << std::endl;
-    std::cout << "double: " << d << std::endl;
+	{
+		std::cout << "float: " << f << "f" << std::endl;
+		std::cout << "double: " << d << std::endl;
+	}
 }
 
 int    printNan()
@@ -150,7 +160,8 @@ void checkString(std::string s)
     {
         if (s[i] == '.')
             point++;
-        else if ((!((i == 0 && (s[i] == '+' || s[i] == '-')) || (i == (s.length() - 1) && s[i] == 'f') || std::isdigit(s[i]))) || point > 1)
+        else if (((!((i == 0 && (s[i] == '+' || s[i] == '-')) || (i == (s.length() - 1) && s[i] == 'f')
+		|| std::isdigit(s[i]))) || point > 1) || s[s.length() - 1] == '.')
         {
             std::cout << "The type conversion is impossible." << std::endl;
             return ;
@@ -159,7 +170,7 @@ void checkString(std::string s)
 
     if (point == 0)
 		return (toInt(s));
-	if (s[s.length()-1] == 'f')
+	if (s[s.length() - 1] == 'f')
     	return (toFloat(s));
     else
     	toDouble(s);
@@ -169,5 +180,3 @@ void ScalarConverter::convert(std::string s)
 {
     checkString(s);
 }
-
-// overflow et 0?
