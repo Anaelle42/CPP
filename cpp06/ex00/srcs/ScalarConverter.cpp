@@ -10,20 +10,22 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter::ScalarConverter(const ScalarConverter& other)
 {
-    (void)other;
+	(void)other;
 }
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 {
-    (void)other;
-    return (*this);
+	(void)other;
+	return (*this);
 }
 
 void toChar(std::string s)
 {
-    char c = s[0];
+	// int i2 = atoi(s.c_str());
 
-    if (std::isprint(s[0]))
+    char c = s[0];
+	// std::cout << "ici" << std::endl;
+    if (std::isprint(c))
         std::cout << "char: " << c << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
@@ -33,8 +35,8 @@ void toChar(std::string s)
     double d = static_cast<double>(c);
 
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << f << std::endl;
-    std::cout << "double: " << d << std::endl;
+    std::cout << "float: " << f << ".0f" << std::endl;
+    std::cout << "double: " << d << ".0" << std::endl;
 }
 
 void toInt(std::string s)
@@ -53,8 +55,8 @@ void toInt(std::string s)
     double d = static_cast<double>(i);
 
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << f << "f" << std::endl;
-    std::cout << "double: " << d << std::endl;
+    std::cout << "float: " << f << ".0f" << std::endl;
+    std::cout << "double: " << d << ".0" << std::endl;
 }
 
 void toDouble(std::string s)
@@ -79,7 +81,11 @@ void toDouble(std::string s)
 
 void toFloat(std::string s)
 {
-    float f = strtof(s.c_str(), NULL);
+	char *str;
+    float f = strtof(s.c_str(), &str);
+	// (void)s;
+    // float f = strtof("9999999999999999999999999999999999f", &str);
+	std::cout << str << std::endl;
 
     if (f >= 33 && f <= 126)
     {
@@ -131,7 +137,7 @@ void checkString(std::string s)
     if (s.empty() || isSpecial(s))
         return ;
 
-    if (s.length() == 1)
+    if (s.length() == 1 and isalpha(s[0]))
         return (toChar(s));
     
     int point = 0;
@@ -148,38 +154,26 @@ void checkString(std::string s)
     }
 
     if (point == 0)
-        return (toInt(s));
-    if (s[s.length() - 1] == 'f')
-        return (toFloat(s));
-    else
-        toDouble(s);
+		return (toInt(s));
+    return (toFloat(s));
+    // if (s[s.length()-1] == 'f')
+    // else
+    //     toDouble(s);
 }
 
 void ScalarConverter::convert(std::string s)
 {
-    checkString(s);
+    // checkString(s);
+	char *str;
+    float f = strtof(s.c_str(), &str);
+	long double f2 = strtold(s.c_str(), NULL);
+	std::cout << f2 << std::endl;
+	if (f2 > static_cast<long double>(f2))
+		std::cout << "problemo" << std::endl;
+	std::cout << static_cast<char>(f) << std::endl;
+	std::cout << static_cast<int>(f) << std::endl;
+	std::cout << static_cast<float>(f) << std::endl;
+	std::cout << static_cast<double>(f) << std::endl;
 }
 
 // overflow et 0?
-#include <cmath>
-void ScalarConverter::convert2(std::string number)
-{
-    const char        *n = number.c_str();
-    if (std::isinf(std::atof(n)) || std::isnan(std::atof(n)))
-    {
-        std::cout << "char: "
-                                << "impossible" << std::endl;
-        std::cout << "int: "
-                                << "impossible" << std::endl;
-    }
-    else
-    {
-        if (isprint((char)std::atof(n)))
-                std::cout << "char: " << (char)std::atof(n) << std::endl;
-        else
-                std::cout << "char: " << "Non displayable" << std::endl;
-        std::cout << "int: " << std::atoi(n) << std::endl;
-    }
-    std::cout << "float: " << (float)std::atof(n) << "f" << std::endl;
-    std::cout << "double: " << std::atof(n) << std::endl;
-}
