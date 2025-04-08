@@ -24,10 +24,13 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other)
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
-	this->_name = other.getName();
-	this->_hitPoints = other.getHit();
-	this->_energyPoints = other.getEnergy();
-	this->_attackDamage = other.getAttack();
+	if (this != &other)
+	{
+		this->_name = other.getName();
+		this->_hitPoints = other.getHit();
+		this->_energyPoints = other.getEnergy();
+		this->_attackDamage = other.getAttack();
+	}
 	return (*this);
 }
 

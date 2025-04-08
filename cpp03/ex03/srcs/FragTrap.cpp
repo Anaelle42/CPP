@@ -27,10 +27,13 @@ FragTrap::FragTrap(const FragTrap& other)
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
-	this->setName(other.getName());
-	this->setHitPoints(other.getHit());
-	this->setEnergy(other.getEnergy());
-	this->setAttack(other.getAttack());
+	if (this != &other)
+	{
+		this->setName(other.getName());
+		this->setHitPoints(other.getHit());
+		this->setEnergy(other.getEnergy());
+		this->setAttack(other.getAttack());
+	}
 	return (*this);
 }
 
