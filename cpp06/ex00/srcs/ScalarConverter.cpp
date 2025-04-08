@@ -41,6 +41,9 @@ void toInt(std::string s)
 {
     int i = atoi(s.c_str());
 
+	if ((i == -1 && s[0] != '-' ) || i != atol(s.c_str()))
+		return ;
+
     if (i >= 33 && i <= 126)
     {
         char c = static_cast<char>(i);
@@ -72,8 +75,11 @@ void toDouble(std::string s)
     int i = static_cast<int>(d);
     float f = static_cast<float>(d);
 
-    std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	if (f - i == 0)
+    	std::cout << "float: " << f << ".0f" << std::endl;
+	else
+	    std::cout << "float: " << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
 }
 
@@ -81,9 +87,6 @@ void toFloat(std::string s)
 {
 	char *str;
     float f = strtof(s.c_str(), &str);
-	// (void)s;
-    // float f = strtof("9999999999999999999999999999999999f", &str);
-	std::cout << str << std::endl;
 
     if (f >= 33 && f <= 126)
     {
@@ -97,7 +100,10 @@ void toFloat(std::string s)
     double d = static_cast<double>(f);
 
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << f << "f" << std::endl;
+	if (f - i == 0)
+    	std::cout << "float: " << f << ".0f" << std::endl;
+	else
+	    std::cout << "float: " << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
 }
 
@@ -136,7 +142,7 @@ void checkString(std::string s)
 		return ;
 
 	if (s.length() == 1 && !isdigit(s[0]))
-        return (toChar(s));
+    	return (toChar(s));
     
     int point = 0;
 
@@ -153,25 +159,15 @@ void checkString(std::string s)
 
     if (point == 0)
 		return (toInt(s));
-    return (toFloat(s));
-    // if (s[s.length()-1] == 'f')
-    // else
-    //     toDouble(s);
+	if (s[s.length()-1] == 'f')
+    	return (toFloat(s));
+    else
+    	toDouble(s);
 }
 
 void ScalarConverter::convert(std::string s)
 {
     checkString(s);
-	// char *str;
-    // float f = strtof(s.c_str(), &str);
-	// long double f2 = strtold(s.c_str(), NULL);
-	// std::cout << f2 << std::endl;
-	// // if (f2 > static_cast<long double>(f2))
-	// // 	std::cout << "problemo" << std::endl;
-	// std::cout << static_cast<char>(f) << std::endl;
-	// std::cout << static_cast<int>(f) << std::endl;
-	// std::cout << static_cast<float>(f) << std::endl;
-	// std::cout << static_cast<double>(f) << std::endl;
 }
 
 // overflow et 0?
