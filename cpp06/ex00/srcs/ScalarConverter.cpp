@@ -21,11 +21,9 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 
 void toChar(std::string s)
 {
-	// int i2 = atoi(s.c_str());
-
     char c = s[0];
-	// std::cout << "ici" << std::endl;
-    if (std::isprint(c))
+
+	if (std::isprint(c))
         std::cout << "char: " << c << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
@@ -135,9 +133,9 @@ int isSpecial(std::string s)
 void checkString(std::string s)
 {
     if (s.empty() || isSpecial(s))
-        return ;
+		return ;
 
-    if (s.length() == 1 and isalpha(s[0]))
+	if (s.length() == 1 && !isdigit(s[0]))
         return (toChar(s));
     
     int point = 0;
@@ -163,17 +161,17 @@ void checkString(std::string s)
 
 void ScalarConverter::convert(std::string s)
 {
-    // checkString(s);
-	char *str;
-    float f = strtof(s.c_str(), &str);
-	long double f2 = strtold(s.c_str(), NULL);
-	std::cout << f2 << std::endl;
-	if (f2 > static_cast<long double>(f2))
-		std::cout << "problemo" << std::endl;
-	std::cout << static_cast<char>(f) << std::endl;
-	std::cout << static_cast<int>(f) << std::endl;
-	std::cout << static_cast<float>(f) << std::endl;
-	std::cout << static_cast<double>(f) << std::endl;
+    checkString(s);
+	// char *str;
+    // float f = strtof(s.c_str(), &str);
+	// long double f2 = strtold(s.c_str(), NULL);
+	// std::cout << f2 << std::endl;
+	// // if (f2 > static_cast<long double>(f2))
+	// // 	std::cout << "problemo" << std::endl;
+	// std::cout << static_cast<char>(f) << std::endl;
+	// std::cout << static_cast<int>(f) << std::endl;
+	// std::cout << static_cast<float>(f) << std::endl;
+	// std::cout << static_cast<double>(f) << std::endl;
 }
 
 // overflow et 0?
