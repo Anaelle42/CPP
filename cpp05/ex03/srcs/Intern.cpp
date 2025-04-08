@@ -52,10 +52,8 @@ AForm* Intern::makeForm(std::string name, std::string target)
 		{
 			AForm *form = (this->*ftab[i])(target);
 			std::cout << "Intern creates " << form->getName() << std::endl;
-			return (form);
-			
+			return (form);	
 		}
 	}
 	throw Intern::DoesntExistException();
-	return (NULL);
 }

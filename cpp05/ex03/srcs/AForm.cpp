@@ -78,10 +78,9 @@ std::ostream &operator<<(std::ostream& os, const AForm& other)
 
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
-	if (bureaucrat.getGrade() <= this->_gradeToSign)
-		this->_isSigned = 1;
-	else
+	if (bureaucrat.getGrade() > this->_gradeToSign)
 		throw AForm::GradeTooLowException();
+	this->_isSigned = 1;
 }
 
 std::string AForm::getTarget() const

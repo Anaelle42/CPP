@@ -43,6 +43,5 @@ int main(int argc, char **argv)
 		ft_replace(line, argv[2], argv[3]);
 		ofs << line << std::endl;
 	}
-	ifs.close();
 	return 0;
 }
