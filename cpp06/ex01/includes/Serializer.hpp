@@ -6,8 +6,8 @@
 
 typedef struct s_data
 {
-    std::string type;
-    int         nb;
+	std::string type;
+	int		 nb;
 }					Data;
 
 class Serializer
@@ -18,9 +18,9 @@ class Serializer
 		Serializer& operator=(const Serializer& other);
 		~Serializer();
 
-    public:
-        static uintptr_t serialize(Data* ptr);
-        static Data* deserialize(uintptr_t raw);
+	public:
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
 
 #endif
