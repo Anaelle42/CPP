@@ -14,7 +14,8 @@ WrongAnimal::WrongAnimal(const WrongAnimal& other)
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 {
-	this->_type = other.getType();
+	if (this != &other)
+		this->_type = other.getType();
 	return (*this);
 }
 

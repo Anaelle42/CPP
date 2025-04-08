@@ -16,7 +16,8 @@ AMateria::AMateria(const AMateria& other)
 
 AMateria& AMateria::operator=(const AMateria& other)
 {
-	this->_type = other.getType();
+	if (this != &other)
+		this->_type = other.getType();
 	return (*this);
 }
 

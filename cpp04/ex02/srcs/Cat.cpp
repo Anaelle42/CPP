@@ -16,8 +16,11 @@ Cat::Cat(const Cat& other)
 
 Cat& Cat::operator=(const Cat& other)
 {
-	this->_type = other.getType();
-	*this->_brain = *other._brain;
+	if (this != &other)
+	{
+		this->_type = other.getType();
+		*this->_brain = *other._brain;
+	}
 	return (*this);
 }
 

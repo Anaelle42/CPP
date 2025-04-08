@@ -14,7 +14,8 @@ Dog::Dog(const Dog& other)
 
 Dog& Dog::operator=(const Dog& other)
 {
-	this->_type = other.getType();
+	if (this != &other)
+		this->_type = other.getType();
 	return (*this);
 }
 

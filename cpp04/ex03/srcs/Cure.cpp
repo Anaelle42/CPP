@@ -10,7 +10,8 @@ Cure::Cure(const Cure& other) : AMateria (other._type)
 
 Cure& Cure::operator=(const Cure& other)
 {
-	this->_type = other.getType();
+	if (this != &other)
+		this->_type = other.getType();
 	return (*this);
 }
 

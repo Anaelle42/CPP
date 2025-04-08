@@ -14,7 +14,8 @@ WrongCat::WrongCat(const WrongCat& other)
 
 WrongCat& WrongCat::operator=(const WrongCat& other)
 {
-	this->_type = other.getType();
+	if (this != &other)
+		this->_type = other.getType();
 	return (*this);
 }
 

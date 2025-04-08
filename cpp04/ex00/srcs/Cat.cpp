@@ -14,7 +14,8 @@ Cat::Cat(const Cat& other)
 
 Cat& Cat::operator=(const Cat& other)
 {
-	this->_type = other.getType();
+	if (this != &other)
+		this->_type = other.getType();
 	return (*this);
 }
 
