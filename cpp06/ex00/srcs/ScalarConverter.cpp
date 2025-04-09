@@ -23,7 +23,7 @@ void toChar(std::string s)
 {
 	char c = s[0];
 
-	if (std::isprint(c))
+	if (isprint(c))
 		std::cout << "char: " << c << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
@@ -43,7 +43,7 @@ void toInt(std::string s)
 		return ;
 	}
 
-	if (i >= 33 && i <= 126)
+	if (isprint(i))
 		std::cout << "char: " << static_cast<char>(i) << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
@@ -53,7 +53,7 @@ void toInt(std::string s)
 	std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
 }
 
-void	printIntDoubleFloat(int i, float f, double d)
+void	printIntFloatDouble(int i, float f, double d)
 {
 	std::cout << "int: " << i << std::endl;
 	if (f - i == 0)
@@ -80,7 +80,7 @@ void toDouble(std::string s)
 	int i = static_cast<int>(d);
 	float f = static_cast<float>(d);
 
-	printIntDoubleFloat(f, d, i);
+	printIntFloatDouble(i, f, d);
 }
 
 void toFloat(std::string s)
@@ -95,7 +95,7 @@ void toFloat(std::string s)
 	int i = static_cast<int>(f);
 	double d = static_cast<double>(f);
 
-	printIntDoubleFloat(i, f, d);
+	printIntFloatDouble(i, f, d);
 }
 
 int	printNan()
@@ -118,11 +118,11 @@ int	printInf(char sign)
 
 int isSpecial(std::string s)
 {
-	if (s.compare("nan") == 0 || s.compare("nanf") == 0)
+	if (!s.compare("nan") || !s.compare("nanf"))
 		return (printNan());
-	if (s.compare("+inf") == 0 || s.compare("+inff") == 0)
+	if (!s.compare("+inf") || !s.compare("+inff"))
 		return (printInf('+'));
-	if (s.compare("-inf") == 0 || s.compare("-inff") == 0)
+	if (!s.compare("-inf") || !s.compare("-inff"))
 		return (printInf('-'));
 	return (0);
 }
@@ -141,8 +141,8 @@ void checkString(std::string s)
 	{
 		if (s[i] == '.')
 			point++;
-		else if (((!((i == 0 && (s[i] == '+' || s[i] == '-')) || (i == (s.length() - 1) && s[i] == 'f')
-			|| std::isdigit(s[i]))) || point > 1) || s[s.length() - 1] == '.')
+		else if ((!((i == 0 && (s[i] == '+' || s[i] == '-')) || (i == (s.length() - 1) && s[i] == 'f')
+			|| std::isdigit(s[i]))) || point > 1 || s[s.length() - 1] == '.')
 		{
 			std::cout << "The type conversion is impossible." << std::endl;
 			return ;
