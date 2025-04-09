@@ -1,4 +1,4 @@
-NAME = serialization
+NAME = realType
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

@@ -7,7 +7,7 @@
 typedef struct s_data
 {
 	std::string type;
-	int		 nb;
+	int		 	nb;
 }					Data;
 
 class Serializer
