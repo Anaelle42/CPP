@@ -23,8 +23,8 @@ void toChar(std::string s)
 {
 	char c = s[0];
 
-	if (isprint(c))
-		std::cout << "char: " << c << std::endl;
+	if (c >= 33 && c <= 126)
+		std::cout << "char: '" << c << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
 
@@ -43,8 +43,8 @@ void toInt(std::string s)
 		return ;
 	}
 
-	if (isprint(i))
-		std::cout << "char: " << static_cast<char>(i) << std::endl;
+	if (i >= 33 && i <= 126)
+		std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
 
@@ -53,49 +53,40 @@ void toInt(std::string s)
 	std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
 }
 
-void	printIntFloatDouble(int i, float f, double d)
-{
-	std::cout << "int: " << i << std::endl;
-	if (f - i == 0)
-	{
-		std::cout << "float: " << f << ".0f" << std::endl;
-		std::cout << "double: " << d << ".0" << std::endl;
-	}
-	else
-	{
-		std::cout << "float: " << f << "f" << std::endl;
-		std::cout << "double: " << d << std::endl;
-	}
-}
-
 void toDouble(std::string s)
 {
-	double d = strtod(s.c_str(), NULL);
-	
-	if (d >= 33 && d <= 126)
-		std::cout << "char: " << static_cast<char>(d) << std::endl;
-	else
-		std::cout << "char: Non displayable" << std::endl;
+    double d = std::strtod(s.c_str(), NULL);
 
-	int i = static_cast<int>(d);
-	float f = static_cast<float>(d);
+    if (d >= 33 && d <= 126)
+        std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
 
-	printIntFloatDouble(i, f, d);
+    if (d > static_cast<double>(INT_MAX) || d < static_cast<double>(INT_MIN))
+        std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << static_cast<int>(d) << std::endl;
+
+    std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(d) << "f" << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(2) << d << std::endl;
 }
 
 void toFloat(std::string s)
 {
-	float f = strtof(s.c_str(), NULL);
+    float f = std::strtof(s.c_str(), NULL);
 
 	if (f >= 33 && f <= 126)
 		std::cout << "char: " << static_cast<char>(f) << std::endl;
 	else
-		std::cout << "char: Non displayable" << std::endl;
+		std::cout << "char: imposible" << std::endl;
 
-	int i = static_cast<int>(f);
-	double d = static_cast<double>(f);
+	if (f > static_cast<float>(INT_MAX) || f < static_cast<float>(INT_MIN))
+		std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << static_cast<int>(f) << std::endl;
 
-	printIntFloatDouble(i, f, d);
+    std::cout << "float: " << std::fixed << std::setprecision(2) << f << "f" << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(2) << static_cast<double>(f) << std::endl;
 }
 
 int	printNan()
@@ -127,7 +118,7 @@ int isSpecial(std::string s)
 	return (0);
 }
 
-void checkString(std::string s)
+void ScalarConverter::convert(std::string s)
 {
 	if (s.empty() || isSpecial(s))
 		return ;
@@ -155,9 +146,4 @@ void checkString(std::string s)
 		return (toFloat(s));
 	else
 		toDouble(s);
-}
-
-void ScalarConverter::convert(std::string s)
-{
-	checkString(s);
 }
