@@ -1,13 +1,13 @@
 #include "../includes/Span.hpp"
 
-const char* FullException::what() const throw()
+const char* SpanFullException::what() const throw()
 {
-	return ("FullException");
+	return ("Span is full");
 }
 
 const char* NoDistanceException::what() const throw()
 {
-	return ("NoDistanceException");
+	return ("No span can be found");
 }
 
 int main()
@@ -20,9 +20,10 @@ int main()
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-		// sp.printSpan();
+
 		sp.shortestSpan();
 		sp.longestSpan();
+		// sp.addNumber(1);
 	}
 	catch (std::exception &e)
 	{

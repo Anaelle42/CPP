@@ -12,7 +12,8 @@ int main()
 		std::vector <int> tab;
 		tab.push_back(0);  
 		tab.push_back(10);  
-		tab.push_back(6);  
+		tab.push_back(6);
+		tab.push_back(10);  
 		easyfind(tab, 10);
 		easyfind(tab, 1);
 	}

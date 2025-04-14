@@ -13,7 +13,6 @@ class NotFindException : public std::exception
 };
 
 template <typename T>
- 
 void easyfind(T tab, int n)
 {
 	std::vector<int>::const_iterator i;
@@ -23,7 +22,7 @@ void easyfind(T tab, int n)
 	{
 		if (*i == n)
 		{
-			std::cout << "Find occurence" << std::endl;
+			std::cout << "Find occurence " << *i << std::endl;
 			return ;
 		}
 	}

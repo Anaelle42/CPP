@@ -2,11 +2,12 @@
 # define SPAN_HPP
 
 #include <iostream>
+#include <limits.h>
 #include <map>
 #include <vector>
 #include <list>
 
-class FullException : public std::exception
+class SpanFullException : public std::exception
 {
 	public:
 		virtual const char* what() const throw();
@@ -21,9 +22,9 @@ class NoDistanceException : public std::exception
 class Span
 {
 	private:
-		int _max;
 		std::vector<int> _span;
-		int _nb;
+		int _sizeMax;
+		int _i;
 
 	public:
 		Span();
@@ -33,10 +34,10 @@ class Span
 		~Span();
 
 		void addNumber(int n);
-		void shortestSpan();
-		void longestSpan();
+		void shortestSpan() const;
+		void longestSpan() const;
 		
-		void printSpan();
+		void printSpan() const;
 };
 
 #endif
