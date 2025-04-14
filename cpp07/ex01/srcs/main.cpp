@@ -2,12 +2,12 @@
 
 int main()
 {
-	int length = 5;
+	size_t length = 5;
 
 	int tab[length];
 	std::string strTab[length];
 
-	for (int i = 0; i < length; i++)
+	for (size_t i = 0; i < length; i++)
 	{
 		if (i % 2)
 			strTab[i] = "au revoir";

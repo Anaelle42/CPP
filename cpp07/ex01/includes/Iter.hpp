@@ -3,16 +3,16 @@
 
 #include <iostream>
 
-template <typename T, typename U, typename V>
-
-void iter(T* array, U length, V (*f)(T))
+template <typename T, typename F>
+void iter(T* array, size_t length, F f)
 {
-	for (U i = 0; i < length; i++)
+	if (!array || !f)
+		return ;
+	for (size_t i = 0; i < length; i++)
 		f(array[i]);
 }
 
 template <typename T>
-
 void print(T var)
 {
 	std::cout << var << std::endl;
