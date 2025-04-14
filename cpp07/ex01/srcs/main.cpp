@@ -17,6 +17,7 @@ int main()
 	}
 
 	iter(tab, length, print<int>);
+	std::cout << std::endl;
 	iter(strTab, length, print<std::string>);
 
 	return (0);

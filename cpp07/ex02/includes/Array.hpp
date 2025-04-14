@@ -30,7 +30,7 @@ class Array
 
 		Array& operator=(const Array& other)
 		{
-			if (*this != other)
+			if (*this != &other)
 			{
 				this->_size = other._size;
 				delete[] this->_array;
@@ -41,7 +41,7 @@ class Array
 			return (this);
 		}
 
-		T& operator[](int index)
+		T& operator[](int index) const
 		{
 			if (index < 0 || index >= size())
 				throw Array::BadIndexException();
@@ -61,7 +61,7 @@ class Array
 				}
 		};
 
-		int size()
+		int size() const
 		{
 			return (this->_size);
 		}
