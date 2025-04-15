@@ -35,6 +35,14 @@ void Span::addNumber(int n)
 	this->_i++;
 }
 
+void Span::addNumbers(int n)
+{
+	if (this->_sizeMax < this->_i + n)
+		throw SpanFullException();
+	this->_span.insert(_span.end(), n, 1);
+	this->_i += n;
+}
+
 void Span::shortestSpan() const
 {
 	if (_i < 2)
@@ -88,4 +96,5 @@ void Span::printSpan() const
 	{
 		std::cout << *i << std::endl;
 	}
+	std::cout << "Size = " << this->_span.size() << std::endl;
 }

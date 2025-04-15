@@ -34,6 +34,7 @@ class Span
 		~Span();
 
 		void addNumber(int n);
+		void addNumbers(int n);
 		void shortestSpan() const;
 		void longestSpan() const;
 		
