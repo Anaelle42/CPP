@@ -49,17 +49,18 @@ void Span::shortestSpan() const
 		throw NoDistanceException();
 
 	std::vector<int>::const_iterator i;
+	std::vector<int>::const_iterator j;
 	std::vector<int>::const_iterator end = _span.end();			
 	int distance = INT_MAX;
 
 	for (i = _span.begin(); i != end; i++)
 	{
-		if (*(i + 1))
+		for (j = i + 1; j != end; j++)
 		{
-			if (*i > *(i + 1) && (*i - *(i + 1) < distance))
-				distance = *i - *(i + 1);
-			else if (*i < *(i + 1) && (*(i + 1) - *i < distance))
-				distance = *(i + 1) - *i ;
+			if (*i > *j && *i - *j < distance)
+				distance = *i - *j;
+			else if (*i < *j && *j - *i < distance)
+				distance = *j - *i;
 		}
 	}
 	std::cout << "Shortest span = " << distance << std::endl;
@@ -71,17 +72,18 @@ void Span::longestSpan() const
 		throw NoDistanceException();
 	
 	std::vector<int>::const_iterator i;
+	std::vector<int>::const_iterator j;
 	std::vector<int>::const_iterator end = _span.end();
 	int distance = INT_MIN;
 
 	for (i = _span.begin(); i != end; i++)
 	{
-		if (*(i + 1))
+		for (j = i + 1; j != end; j++)
 		{
-			if (*i > *(i + 1) && (*i - *(i + 1) > distance))
-				distance = *i - *(i + 1);
-			else if (*i < *(i + 1) && (*(i + 1) - *i > distance))
-				distance = *(i + 1) - *i ;
+			if (*i > *j && *i - *j > distance)
+				distance = *i - *j;
+			else if (*i < *j && *j - *i > distance)
+				distance = *j - *i;
 		}
 	}
 	std::cout << "Longest span = " << distance << std::endl;
