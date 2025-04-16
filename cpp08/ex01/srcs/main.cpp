@@ -21,8 +21,10 @@ int main()
 		sp.addNumber(3);
 		sp.addNumber(11);
 
-		std::cout << "Shortest span = " << sp.shortestSpan() << std::endl;
-		std::cout << "Longest span = " << sp.longestSpan() << std::endl;
+		int shortest = sp.shortestSpan();
+		int longest = sp.longestSpan();
+		std::cout << "Shortest span = " << shortest << std::endl;
+		std::cout << "Longest span = " << longest << std::endl;
 
 		std::vector<int> other;
 		for (int i = 0; i < 10000; i++)

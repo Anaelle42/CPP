@@ -21,8 +21,7 @@ class Span
 {
 	private:
 		std::vector<int> _span;
-		int _sizeMax;
-		int _i;
+		unsigned int _sizeMax;
 
 	public:
 		Span();

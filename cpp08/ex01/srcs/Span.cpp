@@ -1,10 +1,10 @@
 #include "../includes/Span.hpp"
 
-Span::Span() : _sizeMax(10), _i(0)
+Span::Span() : _sizeMax(10)
 {
 }
 
-Span::Span(unsigned int n) : _sizeMax(n), _i(0)
+Span::Span(unsigned int n) : _sizeMax(n)
 {
 }
 
@@ -12,7 +12,7 @@ Span::~Span()
 {
 }
 
-Span::Span(const Span& other) : _span(other._span), _sizeMax(other._sizeMax), _i(other._i)
+Span::Span(const Span& other) : _span(other._span), _sizeMax(other._sizeMax)
 {
 }
 
@@ -21,7 +21,6 @@ Span& Span::operator=(const Span& other)
 	if (this != &other)
 	{
 		this->_sizeMax = other._sizeMax;
-		this->_i = other._i;
 		this->_span = other._span;
 	}
 	return (*this);
@@ -29,23 +28,21 @@ Span& Span::operator=(const Span& other)
 
 void Span::addNumber(int n)
 {
-	if (this->_sizeMax < this->_i + 1)
+	if (this->_sizeMax < this->_span.size() + 1)
 		throw SpanFullException();
 	this->_span.push_back(n);
-	this->_i++;
 }
 
 void Span::insertRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	if (this->_sizeMax < this->_i + end - begin)
+	if (this->_sizeMax < this->_span.size() + end - begin)
 		throw SpanFullException();
 	this->_span.insert(this->_span.end(), begin, end);
-	this->_i += end - begin;
 }
 
 int Span::shortestSpan() const
 {
-	if (this->_i < 2)
+	if (this->_span.size() < 2)
 		throw NoDistanceException();
 
 	std::vector<int> sorted = this->_span;
@@ -57,18 +54,18 @@ int Span::shortestSpan() const
 		if (sorted[i] - sorted[i - 1] < min)
 			min = sorted[i] - sorted[i - 1];
 	}
-	return (min);
+	return min;
 }
 
 int Span::longestSpan() const
 {
-	if (this->_i < 2)
+	if (this->_span.size() < 2)
 		throw NoDistanceException();
 	
 	int min = *min_element(this->_span.begin(), this->_span.end());
 	int max = *max_element(this->_span.begin(), this->_span.end());
 
-	return (max - min);
+	return max - min;
 }
 
 void Span::printSpan() const
