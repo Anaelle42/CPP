@@ -35,12 +35,12 @@ void Span::addNumber(int n)
 	this->_i++;
 }
 
-void Span::addNumbers(int n)
+void Span::insertRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	if (this->_sizeMax < this->_i + n)
+	if (this->_sizeMax < this->_i + end - begin)
 		throw SpanFullException();
-	this->_span.insert(_span.end(), n, 1);
-	this->_i += n;
+	this->_span.insert(_span.end(), begin, end);
+	this->_i += end - begin;
 }
 
 void Span::shortestSpan() const
@@ -48,7 +48,7 @@ void Span::shortestSpan() const
 	if (_i < 2)
 		throw NoDistanceException();
 
-	std::vector<int>::const_iterator i = _span.begin();
+	std::vector<int>::const_iterator i;
 	std::vector<int>::const_iterator end = _span.end();			
 	int distance = INT_MAX;
 
@@ -70,7 +70,7 @@ void Span::longestSpan() const
 	if (_i < 2)
 		throw NoDistanceException();
 	
-	std::vector<int>::const_iterator i = _span.begin();
+	std::vector<int>::const_iterator i;
 	std::vector<int>::const_iterator end = _span.end();
 	int distance = INT_MIN;
 

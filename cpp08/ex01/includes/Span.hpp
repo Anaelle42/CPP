@@ -34,7 +34,7 @@ class Span
 		~Span();
 
 		void addNumber(int n);
-		void addNumbers(int n);
+		void insertRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		void shortestSpan() const;
 		void longestSpan() const;
 		
