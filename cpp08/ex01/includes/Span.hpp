@@ -2,10 +2,8 @@
 # define SPAN_HPP
 
 #include <iostream>
-#include <limits.h>
-#include <map>
 #include <vector>
-#include <list>
+#include <algorithm>
 
 class SpanFullException : public std::exception
 {
@@ -28,15 +26,15 @@ class Span
 
 	public:
 		Span();
-		Span(unsigned int N);
+		Span(unsigned int n);
 		Span(const Span& other);
 		Span& operator=(const Span& other);
 		~Span();
 
 		void addNumber(int n);
 		void insertRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-		void shortestSpan() const;
-		void longestSpan() const;
+		int shortestSpan() const;
+		int longestSpan() const;
 		
 		void printSpan() const;
 };

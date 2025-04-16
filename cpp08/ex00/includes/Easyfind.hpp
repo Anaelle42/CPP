@@ -2,9 +2,8 @@
 # define EASYFIND_HPP
 
 #include <iostream>
-#include <map>
 #include <vector>
-#include <list>
+#include <algorithm> // std::find
 
 class NotFindException : public std::exception
 {
@@ -13,20 +12,15 @@ class NotFindException : public std::exception
 };
 
 template <typename T>
-void easyfind(T tab, int n)
+void easyfind(const T& tab, int n)
 {
-	std::vector<int>::const_iterator i;
-	std::vector<int>::const_iterator end = tab.end();
-			
-	for (i = tab.begin(); i != end; i++)
-	{
-		if (*i == n)
-		{
-			std::cout << "Find occurence " << *i << std::endl;
-			return ;
-		}
-	}
-	throw NotFindException();
+	std::vector<int>::const_iterator it;
+	
+	it = find(tab.begin(), tab.end(), n);
+	if (it != tab.end())
+		std::cout << "Element found: " << *it << '\n';
+	else
+		throw NotFindException();
 }
 
 #endif

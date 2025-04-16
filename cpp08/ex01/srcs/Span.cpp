@@ -4,7 +4,7 @@ Span::Span() : _sizeMax(10), _i(0)
 {
 }
 
-Span::Span(unsigned int N) : _sizeMax(N), _i(0)
+Span::Span(unsigned int n) : _sizeMax(n), _i(0)
 {
 }
 
@@ -39,62 +39,44 @@ void Span::insertRange(std::vector<int>::iterator begin, std::vector<int>::itera
 {
 	if (this->_sizeMax < this->_i + end - begin)
 		throw SpanFullException();
-	this->_span.insert(_span.end(), begin, end);
+	this->_span.insert(this->_span.end(), begin, end);
 	this->_i += end - begin;
 }
 
-void Span::shortestSpan() const
+int Span::shortestSpan() const
 {
-	if (_i < 2)
+	if (this->_i < 2)
 		throw NoDistanceException();
 
-	std::vector<int>::const_iterator i;
-	std::vector<int>::const_iterator j;
-	std::vector<int>::const_iterator end = _span.end();			
-	int distance = INT_MAX;
+	std::vector<int> sorted = this->_span;
+	sort(sorted.begin(), sorted.end());
 
-	for (i = _span.begin(); i != end; i++)
+	int min = sorted[1] - sorted[0];
+	for (size_t i = 2; i < sorted.size(); ++i)
 	{
-		for (j = i + 1; j != end; j++)
-		{
-			if (*i > *j && *i - *j < distance)
-				distance = *i - *j;
-			else if (*i < *j && *j - *i < distance)
-				distance = *j - *i;
-		}
+		if (sorted[i] - sorted[i - 1] < min)
+			min = sorted[i] - sorted[i - 1];
 	}
-	std::cout << "Shortest span = " << distance << std::endl;
+	return (min);
 }
 
-void Span::longestSpan() const
+int Span::longestSpan() const
 {
-	if (_i < 2)
+	if (this->_i < 2)
 		throw NoDistanceException();
 	
-	std::vector<int>::const_iterator i;
-	std::vector<int>::const_iterator j;
-	std::vector<int>::const_iterator end = _span.end();
-	int distance = INT_MIN;
+	int min = *min_element(this->_span.begin(), this->_span.end());
+	int max = *max_element(this->_span.begin(), this->_span.end());
 
-	for (i = _span.begin(); i != end; i++)
-	{
-		for (j = i + 1; j != end; j++)
-		{
-			if (*i > *j && *i - *j > distance)
-				distance = *i - *j;
-			else if (*i < *j && *j - *i > distance)
-				distance = *j - *i;
-		}
-	}
-	std::cout << "Longest span = " << distance << std::endl;
+	return (max - min);
 }
 
 void Span::printSpan() const
 {
 	std::vector<int>::const_iterator i;
-	std::vector<int>::const_iterator end = _span.end();
+	std::vector<int>::const_iterator end = this->_span.end();
 			
-	for (i = _span.begin(); i != end; i++)
+	for (i = this->_span.begin(); i != end; i++)
 	{
 		std::cout << *i << std::endl;
 	}
