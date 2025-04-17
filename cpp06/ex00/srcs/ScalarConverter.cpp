@@ -78,7 +78,7 @@ void toFloat(std::string s)
 	if (f >= 33 && f <= 126)
 		std::cout << "char: " << static_cast<char>(f) << std::endl;
 	else
-		std::cout << "char: imposible" << std::endl;
+		std::cout << "char: Non displayable" << std::endl;
 
 	if (f > static_cast<float>(INT_MAX) || f < static_cast<float>(INT_MIN))
 		std::cout << "int: impossible" << std::endl;
