@@ -20,7 +20,8 @@ int main()
 		
 		alex.signForm(*form);
 		alex.executeForm(*form);
-
+		
+		delete form;
 	}
 	catch (std::exception &e)
 	{

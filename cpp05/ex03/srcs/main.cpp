@@ -19,6 +19,7 @@ int main()
 		Bureaucrat didier("didier", 4);
 		didier.signForm(*rrf);
 		didier.executeForm(*rrf);
+		delete rrf;
 	}
 	catch (std::exception &e)
 	{
