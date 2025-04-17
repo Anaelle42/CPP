@@ -70,5 +70,9 @@ int main()
 	identify(base3);
 	identify(*base3);
 
+	delete base;
+	delete base2;
+	delete base3;
+	
 	return (0);
 }
