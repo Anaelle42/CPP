@@ -39,7 +39,7 @@ void toInt(std::string s)
 
 	if ((i == -1 && s[0] != '-' ) || i != atol(s.c_str()))
 	{
-		std::cout << "Conversion overflows" << std::endl;
+		std::cerr << "Conversion overflows" << std::endl;
 		return ;
 	}
 
@@ -135,7 +135,7 @@ void ScalarConverter::convert(std::string s)
 		else if ((!((i == 0 && (s[i] == '+' || s[i] == '-')) || (i == (s.length() - 1) && s[i] == 'f')
 			|| std::isdigit(s[i]))) || point > 1 || s[s.length() - 1] == '.')
 		{
-			std::cout << "The type conversion is impossible." << std::endl;
+			std::cerr << "The type conversion is impossible." << std::endl;
 			return ;
 		}
 	}

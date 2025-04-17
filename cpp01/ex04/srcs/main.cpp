@@ -18,14 +18,14 @@ int main(int argc, char **argv)
 {
 	if (argc != 4)
 	{
-		std::cout << "Invalid number of arguments" << std::endl;
+		std::cerr << "Invalid number of arguments" << std::endl;
 		return 1;
 	}
 
 	std::ifstream ifs (argv[1]);
 	if (!ifs.is_open())
 	{
-		std::cout << "Error opening file" << std::endl;
+		std::cerr << "Error opening file" << std::endl;
 		return 1;
 	}
 
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 	std::ofstream ofs (outf.append(".replace").c_str());
 	if (!ofs.is_open())
 	{
-		std::cout << "Error opening file" << std::endl;
+		std::cerr << "Error opening file" << std::endl;
 		return 1;
 	}
 

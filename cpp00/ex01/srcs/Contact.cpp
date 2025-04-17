@@ -13,7 +13,7 @@ int	checkString(std::string str)
 {
 	if (!std::cin || str.empty())
 	{
-		std::cout << "A contact cannot have empty fields" << std::endl;
+		std::cerr << "A contact cannot have empty fields" << std::endl;
 		return 1;
 	}
 	for (size_t i(0); i < str.length(); i++)
@@ -21,7 +21,7 @@ int	checkString(std::string str)
 		if (std::isprint(str[i]) && !std::isspace(str[i])) 
         	return 0;
     }
-	std::cout << "A contact cannot have empty fields" << std::endl;
+	std::cerr << "A contact cannot have empty fields" << std::endl;
 	return 1;
 }
 
@@ -33,7 +33,7 @@ int	checkNumber(std::string str)
 			i++;
 		if (!std::isdigit(str[i])) 
         {
-			std::cout << "The phone number must contain only digits" << std::endl;
+			std::cerr << "The phone number must contain only digits" << std::endl;
 			return 1;
 		}
     }

@@ -26,7 +26,7 @@ void	PhoneBook::getInfo(std::string str)
 	{
 		if (!std::isdigit(str[i])) 
         {
-			std::cout << "Invalid index" << std::endl;
+			std::cerr << "Invalid index" << std::endl;
 			return ;
 		}
     }
@@ -34,7 +34,7 @@ void	PhoneBook::getInfo(std::string str)
 	if (nb > 0 && nb <= 8 && this->_phonebook[nb -1].checkIfExist())
 		this->_phonebook[nb -1].getContact();
 	else
-		std::cout << "No contact found with this index" << std::endl;
+		std::cerr << "No contact found with this index" << std::endl;
 }
 
 void PhoneBook::search()

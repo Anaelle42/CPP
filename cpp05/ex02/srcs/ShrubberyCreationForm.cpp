@@ -39,7 +39,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	std::ofstream ofs (this->getTarget().append("_shrubbery").c_str());
 	if (!ofs.is_open())
 	{
-		std::cout << "Error opening file" << std::endl;
+		std::cerr << "Error opening file" << std::endl;
 		return;
 	}
 	ofs << "   /\\" << std::endl;
